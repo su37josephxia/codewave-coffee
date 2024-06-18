@@ -4,6 +4,7 @@
 # 分割文件
 split -b 90m image/image/coffee0528.tar.gz image/image/coffee0528_
 
+# 合并
 cat image/image/coffee0528_* > image/image/coffee0528.tar.gz
 
 ```

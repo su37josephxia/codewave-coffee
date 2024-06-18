@@ -1,4 +1,4 @@
 target/
-dependencies/output/
+dependency/output/
 src/main/resources/static/packages/
 **/.vscode/

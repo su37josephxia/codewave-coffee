@@ -18,7 +18,9 @@ services:
       - 8082:8080
   app:
     #使用Dockerfile构建镜像
-    build: ./DockerfileMaven
+    build:
+      context: ./
+      dockerfile: DockerfileMaven
     depends_on:
       - db #依赖db服务
     ports:

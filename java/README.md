@@ -16,6 +16,10 @@ podman compose exec db mysql -e 'SOURCE /db/all-defaultDS-mysql.sql;' --database
 # 添加数据
 podman compose exec db mysql -e 'SOURCE /db/websql_exportjystudy-dev-coffee0528-DOep6r_vdfpY.sql;' --database coffee0528 -u root -pexample
 
+
+podman compose up --build --force-recreate
+
+
 #
 
 
