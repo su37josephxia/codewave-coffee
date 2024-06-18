@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPRowRuleItem Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.entities.LCAPRowRuleItemMapper">
+    <resultMap id="BaseResultMap" type="com.jystudy.coffee0528.domain.entities.LCAPRowRuleItem">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="data_permission_id" jdbcType="BIGINT" property="dataPermissionId" />
+        <result column="property_name" jdbcType="VARCHAR" property="propertyName" />
+        <result column="comparison" jdbcType="VARCHAR" property="comparison" />
+        <result column="values" jdbcType="VARCHAR" property="values"  typeHandler="com.jystudy.coffee0528.repository.handler.ListTypeHandler_1" />
+        <result column="values_type" jdbcType="VARCHAR" property="valuesType" />
+    </resultMap>
+
+    <!--
+       ###################################################
+       ######### mysql
+       ###################################################
+     -->
+    <insert id="insert" parameterType="com.jystudy.coffee0528.domain.entities.LCAPRowRuleItem"  >
+        INSERT INTO `lcap_row_rule_item_f803ac` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`data_permission_id`
+            ,`property_name`
+            ,`comparison`
+            ,`values`
+            ,`values_type`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{dataPermissionId,jdbcType=BIGINT}
+            ,#{propertyName,jdbcType=VARCHAR}
+            ,#{comparison,jdbcType=VARCHAR}
+            ,#{values,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_1}
+            ,#{valuesType,jdbcType=VARCHAR}
+        )
+    </insert>
+
+    <insert id="batchInsert"  parameterType="java.util.List" >
+        INSERT INTO `lcap_row_rule_item_f803ac` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`data_permission_id`
+            ,`property_name`
+            ,`comparison`
+            ,`values`
+            ,`values_type`
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.id,jdbcType=BIGINT}
+            ,#{item.createdTime,jdbcType=TIMESTAMP}
+            ,#{item.updatedTime,jdbcType=TIMESTAMP}
+            ,#{item.createdBy,jdbcType=VARCHAR}
+            ,#{item.updatedBy,jdbcType=VARCHAR}
+            ,#{item.dataPermissionId,jdbcType=BIGINT}
+            ,#{item.propertyName,jdbcType=VARCHAR}
+            ,#{item.comparison,jdbcType=VARCHAR}
+            ,#{item.values,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_1}
+            ,#{item.valuesType,jdbcType=VARCHAR}
+         )
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.jystudy.coffee0528.domain.entities.LCAPRowRuleItem" >
+        UPDATE `lcap_row_rule_item_f803ac`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('dataPermissionId')">`data_permission_id` = #{bean.dataPermissionId, jdbcType= BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('propertyName')">`property_name` = #{bean.propertyName, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('comparison')">`comparison` = #{bean.comparison, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('values')">`values` = #{bean.values, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_1},</if>
+            <if test="updateFields == null or updateFields.contains('valuesType')">`values_type` = #{bean.valuesType, jdbcType= VARCHAR},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+    <!-- todo -->
+    <update id="batchUpdate" parameterType="com.jystudy.coffee0528.domain.entities.LCAPRowRuleItem" >
+        UPDATE `lcap_row_rule_item_f803ac`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('dataPermissionId')">`data_permission_id` = #{bean.dataPermissionId, jdbcType= BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('propertyName')">`property_name` = #{bean.propertyName, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('comparison')">`comparison` = #{bean.comparison, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('values')">`values` = #{bean.values, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_1},</if>
+            <if test="updateFields == null or updateFields.contains('valuesType')">`values_type` = #{bean.valuesType, jdbcType= VARCHAR},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM `lcap_row_rule_item_f803ac` where `id` = #{id}
+    </delete>
+
+
+    <delete id="batchDelete" >
+        DELETE FROM `lcap_row_rule_item_f803ac` where `id` in
+        <foreach collection="list" item="pkValueItem" index="index"  separator="," open="(" close=")">
+            #{pkValueItem}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReference">
+        DELETE FROM `lcap_row_rule_item_f803ac`
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'dataPermissionId'">
+                    AND `data_permission_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'propertyName'">
+                    AND `property_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'comparison'">
+                    AND `comparison` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'values'">
+                    AND `values` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'valuesType'">
+                    AND `values_type` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
+    <select id="existReference" resultType="java.lang.Long" >
+        select `id` from `lcap_row_rule_item_f803ac` 
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'dataPermissionId'">
+                    AND `data_permission_id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'propertyName'">
+                    AND `property_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'comparison'">
+                    AND `comparison` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'values'">
+                    AND `values` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'valuesType'">
+                    AND `values_type` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+         LIMIT 1
+    </select>
+
+
+    <select id="selectOne" resultMap="BaseResultMap" >
+        select *
+        from `lcap_row_rule_item_f803ac`
+        where `id`=#{id}
+    </select>
+
+    <select id="selectList" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter" resultMap="BaseResultMap" >
+        select *
+        from `lcap_row_rule_item_f803ac`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <select id="count" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter" resultType="java.lang.Integer" >
+        select count(1) from `lcap_row_rule_item_f803ac`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <insert id="createOrUpdate" parameterType="com.jystudy.coffee0528.domain.entities.LCAPRowRuleItem">
+        INSERT INTO `lcap_row_rule_item_f803ac` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`data_permission_id`
+            ,`property_name`
+            ,`comparison`
+            ,`values`
+            ,`values_type`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{dataPermissionId,jdbcType=BIGINT}
+            ,#{propertyName,jdbcType=VARCHAR}
+            ,#{comparison,jdbcType=VARCHAR}
+            ,#{values,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_1}
+            ,#{valuesType,jdbcType=VARCHAR}
+        )
+    </insert>
+
+
+    <update id="updateBy">
+        UPDATE `lcap_row_rule_item_f803ac`
+        <set>
+        <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('dataPermissionId')">`data_permission_id` = #{bean.dataPermissionId, jdbcType= BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('propertyName')">`property_name` = #{bean.propertyName, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('comparison')">`comparison` = #{bean.comparison, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('values')">`values` = #{bean.values, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_1},</if>
+        <if test="updateFields == null or updateFields.contains('valuesType')">`values_type` = #{bean.valuesType, jdbcType= VARCHAR},</if>
+        </set>
+        where ${filter.sql("mysql")} 
+
+    </update>
+
+    <delete id="deleteBy" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter">
+        DELETE FROM `lcap_row_rule_item_f803ac`
+        where ${filter.sql("mysql")} 
+    </delete>
+</mapper>

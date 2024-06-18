@@ -1,0 +1,21 @@
+FROM maven:3.8.6-openjdk-18-slim
+
+# 设置工作目录
+WORKDIR /app
+
+# 将本地项目代码复制到容器中
+COPY pom.xml .
+COPY src ./src
+COPY dependency ./dependency
+
+# 安装二方包
+RUN ./dependency/install-dependency.sh
+
+# 执行 Maven 编译
+RUN mvn clean package -DskipTests
+
+# 暴露应用端口
+EXPOSE 8080
+
+# 启动应用
+CMD ["java", "-jar", "/app/target/coffee0528-1.0-SNAPSHOT.jar"]

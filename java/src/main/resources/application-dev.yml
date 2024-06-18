@@ -1,0 +1,145 @@
+logging:
+  file:
+    path: ${user.home}
+  path: ${logging.file.path}
+spring:
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations[0]: classpath:/static/
+    static-locations[1]: classpath:/static/assets/
+    static-locations[2]: classpath:/static/packages/
+  main:
+    lazy-initialization: false
+  application:
+    name: coffee0528
+    id: f803acb3-c5e5-441b-8f51-9f5a1f837ac6
+  liquibase:
+    enabled: false
+  initDatabase:
+    enabled: false
+  quartz:
+    enabled: false
+  devtools:
+    restart:
+      enabled: false
+    livereload:
+      enabled: false
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://db:3306/coffee0528?useUnicode=true&characterEncoding=utf8&useSSL=false&useLegacyDatetimeCode=false&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&zeroDateTimeBehavior=CONVERT_TO_NULL
+    username: root
+    password: example
+    connection-timeout: 3000
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+      data-source-properties:
+        cachePrepStmts: true
+        prepStmtCacheSize: 250
+        prepStmtCacheSqlLimit: 2048
+        useServerPrepStmts: true
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 50MB
+  messages:
+    basename: i18n/messages
+  profiles:
+    include: auth
+mybatis:
+  mapper-locations: classpath:mappings/**/*Mapper.xml
+  type-handlers-package: com.jystudy.coffee0528.repository.handler
+  configuration:
+    database-id: mysql
+    default-enum-type-handler: com.jystudy.coffee0528.repository.handler.AutoEnumTypeHandler
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: text/html,text/xml,text/plain,text/css, application/javascript, application/json
+    min-response-size: 1024
+lcp:
+  snowflakeNodeId: null
+  authCenter:
+    enable: true
+    address: http://nuims.low-code:8081/nuims
+    host: nuims.low-code
+    security:
+      lockMilliseconds: 900000
+      maxFailureTimes: 5
+  flowUrl: http://api.gateway.lowcode/gateway/bpms
+  gatewayUrl: ""
+  audit:
+    enable: true
+    address: http://platform-audit.service.163.org
+  uiResourceAddress: /client.js
+  gatewayType: light
+  upload:
+    sinkType: nos
+    sinkPath: /app
+    s3Address: nos-eastchina1.126.net
+    s3AccessKey: ""
+    s3SecretKey: ""
+    s3Bucket: lcap-static-saas
+    access: public
+    ttl: -1.0
+    cdnAddress: ""
+  logResponse: false
+  logRequest: true
+  quartzTables: {}
+  report:
+    host: ""
+    tokenKey: ""
+    domainId: null
+    projectId: null
+    reportIdMap: {}
+    componentIdMap: {}
+  nuims: http://nuims.low-code:8081
+  private: null
+  frontends:
+    pc:
+      name: pc
+      path: /
+      title: PC端
+      type: pc
+    m:
+      name: m
+      path: /m
+      title: H5端
+      type: h5
+upload:
+  base-path: app
+file:
+  types: text/plain;text/html;text/css;application/javascript
+extensions:
+  lcap_annotation_data_permission:
+    custom:
+      dataPermissionCacheExpireSeconds: "60"
+      dataPermissionCacheMaximumSize: "60"
+      skipLCAPEntity: "true"
+logicAuthFlag: true
+auth:
+  pass:
+    salt: $2a!@#$%^&*()_+
+  token:
+    secret: 37124e5563db839
+    expire: 86400
+  plugin:
+    list:
+      Normal:
+        category: main
+  types: Normal
+  Normal: '{"category":"main"}'
+gw:
+  app:
+    addr:
+      lowcode: http://lcap.low-code:22988
+      nuims: http://nuims.low-code:8081
+custom:
+  api:
+    context-path: /
+  system:
+    time-zone: user

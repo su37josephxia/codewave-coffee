@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadCoffeeManagementTableView_1CustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LoadCoffeeManagementTableView_1CustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_3177427AE9FE919421E083B9B8414DE0" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_3177427AE9FE919421E083B9B8414DE0">
+    <id column="T1_C1" property="coffee.id"/>
+    <result column="T1_C2" property="coffee.createdTime"/>
+    <result column="T1_C3" property="coffee.updatedTime"/>
+    <result column="T1_C4" property="coffee.createdBy"/>
+    <result column="T1_C5" property="coffee.updatedBy"/>
+    <result column="T1_C6" property="coffee.coffeename"/>
+    <result column="T1_C7" property="coffee.description"/>
+    <result column="T1_C8" property="coffee.price"/>
+    <result column="T1_C9" property="coffee.coffeeImage"/>
+    <result column="T1_C10" property="coffee.coffeeCategory"/>
+    <result column="T1_C11" property="coffee.isDisplay"/>
+    <result column="T2_C1" property="coffeeCategory.id"/>
+    <result column="T2_C2" property="coffeeCategory.createdTime"/>
+    <result column="T2_C3" property="coffeeCategory.updatedTime"/>
+    <result column="T2_C4" property="coffeeCategory.createdBy"/>
+    <result column="T2_C5" property="coffeeCategory.updatedBy"/>
+    <result column="T2_C6" property="coffeeCategory.cateGoryName"/>
+    <result column="T2_C7" property="coffeeCategory.isDisplay"/>
+</resultMap>
+
+<select id="getAnonymousStructure_3177427AE9FE919421E083B9B8414DE0" resultMap="AnonymousStructure_3177427AE9FE919421E083B9B8414DE0">
+SELECT `coffee`.`id` `T1_C1`,`coffee`.`created_time` `T1_C2`,`coffee`.`updated_time` `T1_C3`,`coffee`.`created_by` `T1_C4`,`coffee`.`updated_by` `T1_C5`,`coffee`.`coffeename` `T1_C6`,`coffee`.`description` `T1_C7`,`coffee`.`price` `T1_C8`,`coffee`.`coffee_image` `T1_C9`,`coffee`.`coffee_category` `T1_C10`,`coffee`.`is_display` `T1_C11`,`coffee_category`.`id` `T2_C1`,`coffee_category`.`created_time` `T2_C2`,`coffee_category`.`updated_time` `T2_C3`,`coffee_category`.`created_by` `T2_C4`,`coffee_category`.`updated_by` `T2_C5`,`coffee_category`.`cate_gory_name` `T2_C6`,`coffee_category`.`is_display` `T2_C7` FROM `coffee` LEFT JOIN `coffee_category` ON `coffee`.`coffee_category` = `coffee_category`.`id` 
+<if test=" 1==1 or ( filter!=null and filter.coffeeCategory!=null ) or ( filter!=null and filter.coffeename!=null ) or ( filter!=null and filter.isDisplay!=null ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+
+<if test=" 1==1 and ( filter!=null and filter.coffeename!=null ) ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+`coffee`.`coffeename` LIKE concat('%', concat(#{filter.coffeename}, '%')) 
+</trim> 
+</if> 
+<if test=" 1==1 or ( filter!=null and filter.coffeeCategory!=null ) or ( filter!=null and filter.isDisplay!=null ) ">
+
+<trim  prefix="and">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+
+<if test=" 1==1 and ( filter!=null and filter.coffeeCategory!=null ) ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+`coffee`.`coffee_category` = #{filter.coffeeCategory} 
+</trim> 
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.isDisplay!=null ) ">
+
+<trim  prefix="and">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+`coffee`.`is_display` = #{filter.isDisplay} 
+</trim> 
+</trim> 
+</if> 
+</trim> 
+</trim> 
+</if> 
+</trim> 
+</if> 
+<if test=" sort!=null ">
+
+<trim  prefix="ORDER BY" suffixOverrides=",">
+
+<if test=" sort!=null ">
+
+<trim  suffix=",">
+${sort} 
+<if test=" order!=null ">
+${@com.jystudy.coffee0528.util.SqlInjectCheckUtil@checkAscOrDesc(order)} 
+</if> 
+</trim> 
+</if> 
+</trim> 
+</if> 
+<if test=" 1==1 and lcap_71860C77_page!=null and lcap_F7BD60B7_size!=null ">
+ LIMIT ${( lcap_F7BD60B7_size * ( lcap_71860C77_page - 1 ) )}, ${lcap_F7BD60B7_size} 
+</if>
+</select>
+
+<select id="countAnonymousStructure_3177427AE9FE919421E083B9B8414DE0" resultType="java.lang.Long">
+SELECT COUNT(*) FROM `coffee` LEFT JOIN `coffee_category` ON `coffee`.`coffee_category` = `coffee_category`.`id` 
+<if test=" 1==1 or ( filter!=null and filter.coffeeCategory!=null ) or ( filter!=null and filter.coffeename!=null ) or ( filter!=null and filter.isDisplay!=null ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+
+<if test=" 1==1 and ( filter!=null and filter.coffeename!=null ) ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+`coffee`.`coffeename` LIKE concat('%', concat(#{filter.coffeename}, '%')) 
+</trim> 
+</if> 
+<if test=" 1==1 or ( filter!=null and filter.coffeeCategory!=null ) or ( filter!=null and filter.isDisplay!=null ) ">
+
+<trim  prefix="and">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+
+<if test=" 1==1 and ( filter!=null and filter.coffeeCategory!=null ) ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+`coffee`.`coffee_category` = #{filter.coffeeCategory} 
+</trim> 
+</if> 
+<if test=" 1==1 and ( filter!=null and filter.isDisplay!=null ) ">
+
+<trim  prefix="and">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+`coffee`.`is_display` = #{filter.isDisplay} 
+</trim> 
+</trim> 
+</if> 
+</trim> 
+</trim> 
+</if> 
+</trim> 
+</if>
+</select>
+</mapper>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPDeleteDataPermissionCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPDeleteDataPermissionCustomizeServiceMapper">
+
+<select id="getLong" resultType="java.lang.Long">
+SELECT `lcap_data_permission_f803ac`.`id` `id` FROM `lcap_data_permission_f803ac` 
+<if test=" 1==1 ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+`lcap_data_permission_f803ac`.`resource_type` = 'entity' 
+</trim> 
+</if> GROUP BY `lcap_data_permission_f803ac`.`id`
+</select>
+
+<select id="getLong1" resultType="java.lang.Long">
+SELECT `lcap_data_permission_f803ac`.`id` `id` FROM `lcap_data_permission_f803ac` 
+<if test=" 1==1 ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+`lcap_data_permission_f803ac`.`resource_type` = 'logic' 
+</trim> 
+</if> GROUP BY `lcap_data_permission_f803ac`.`id`
+</select>
+</mapper>

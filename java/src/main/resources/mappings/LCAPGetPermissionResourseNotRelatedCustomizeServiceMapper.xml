@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPGetPermissionResourseNotRelatedCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPGetPermissionResourseNotRelatedCustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_755C4BB2E990BE4BACD3C49B96FE0DA6" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_755C4BB2E990BE4BACD3C49B96FE0DA6">
+    <id column="T1_C1" property="lCAPResource.id"/>
+    <result column="T1_C2" property="lCAPResource.name"/>
+    <result column="T1_C3" property="lCAPResource.description"/>
+</resultMap>
+
+<select id="getAnonymousStructure_755C4BB2E990BE4BACD3C49B96FE0DA6" resultMap="AnonymousStructure_755C4BB2E990BE4BACD3C49B96FE0DA6">
+SELECT `lcap_resource_f803ac`.`id` `T1_C1`,`lcap_resource_f803ac`.`name` `T1_C2`,`lcap_resource_f803ac`.`description` `T1_C3` FROM `lcap_resource_f803ac` 
+<if test=" 1==1 and ( relatedList!=null and relatedList.size()>0 ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+( NOT ( `lcap_resource_f803ac`.`id` IN 
+<foreach item="item" index="index" collection="relatedList" open="(" separator="," close=")">
+#{item} 
+</foreach> ) ) 
+</trim> 
+</if> 
+<if test=" 1==1 ">
+ LIMIT ${( 1000 * ( 1 - 1 ) )}, ${1000} 
+</if>
+</select>
+
+<select id="countAnonymousStructure_755C4BB2E990BE4BACD3C49B96FE0DA6" resultType="java.lang.Long">
+SELECT COUNT(*) FROM `lcap_resource_f803ac` 
+<if test=" 1==1 and ( relatedList!=null and relatedList.size()>0 ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+( NOT ( `lcap_resource_f803ac`.`id` IN 
+<foreach item="item" index="index" collection="relatedList" open="(" separator="," close=")">
+#{item} 
+</foreach> ) ) 
+</trim> 
+</if>
+</select>
+</mapper>

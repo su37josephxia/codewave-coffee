@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPGetRowRuleByDataPermissionIdCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPGetRowRuleByDataPermissionIdCustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_C320F64FFAC1D657E9089ED51D519363" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_C320F64FFAC1D657E9089ED51D519363">
+    <id column="T1_C1" property="lCAPRowRuleItem.id"/>
+    <result column="T1_C2" property="lCAPRowRuleItem.createdTime"/>
+    <result column="T1_C3" property="lCAPRowRuleItem.updatedTime"/>
+    <result column="T1_C4" property="lCAPRowRuleItem.createdBy"/>
+    <result column="T1_C5" property="lCAPRowRuleItem.updatedBy"/>
+    <result column="T1_C6" property="lCAPRowRuleItem.dataPermissionId"/>
+    <result column="T1_C7" property="lCAPRowRuleItem.propertyName"/>
+    <result column="T1_C8" property="lCAPRowRuleItem.comparison"/>
+    <result column="T1_C9" property="lCAPRowRuleItem.values" typeHandler="com.jystudy.coffee0528.repository.handler.ListTypeHandler_1"/>
+    <result column="T1_C10" property="lCAPRowRuleItem.valuesType"/>
+</resultMap>
+
+<select id="getAnonymousStructure_C320F64FFAC1D657E9089ED51D519363" resultMap="AnonymousStructure_C320F64FFAC1D657E9089ED51D519363">
+SELECT `lcap_row_rule_item_f803ac`.`id` `T1_C1`,`lcap_row_rule_item_f803ac`.`created_time` `T1_C2`,`lcap_row_rule_item_f803ac`.`updated_time` `T1_C3`,`lcap_row_rule_item_f803ac`.`created_by` `T1_C4`,`lcap_row_rule_item_f803ac`.`updated_by` `T1_C5`,`lcap_row_rule_item_f803ac`.`data_permission_id` `T1_C6`,`lcap_row_rule_item_f803ac`.`property_name` `T1_C7`,`lcap_row_rule_item_f803ac`.`comparison` `T1_C8`,`lcap_row_rule_item_f803ac`.`values` `T1_C9`,`lcap_row_rule_item_f803ac`.`values_type` `T1_C10` FROM `lcap_row_rule_item_f803ac` 
+<if test=" 1==1 and dataPermissionId!=null ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+`lcap_row_rule_item_f803ac`.`data_permission_id` = #{dataPermissionId} 
+</trim> 
+</if>
+</select>
+</mapper>

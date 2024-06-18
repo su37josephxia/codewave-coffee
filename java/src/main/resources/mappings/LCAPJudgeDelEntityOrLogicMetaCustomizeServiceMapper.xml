@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPJudgeDelEntityOrLogicMetaCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPJudgeDelEntityOrLogicMetaCustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_7E0E3711C8F04CD2E91C507B336679CC" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_7E0E3711C8F04CD2E91C507B336679CC">
+    <id column="T1_C1" property="lCAPEntityMeta.id"/>
+    <result column="T1_C2" property="lCAPEntityMeta.createdTime"/>
+    <result column="T1_C3" property="lCAPEntityMeta.updatedTime"/>
+    <result column="T1_C4" property="lCAPEntityMeta.createdBy"/>
+    <result column="T1_C5" property="lCAPEntityMeta.updatedBy"/>
+    <result column="T1_C6" property="lCAPEntityMeta.entityName"/>
+    <result column="T1_C7" property="lCAPEntityMeta.tableName"/>
+    <result column="T1_C8" property="lCAPEntityMeta.entityDescription"/>
+    <result column="T1_C9" property="lCAPEntityMeta.properties" typeHandler="com.jystudy.coffee0528.repository.handler.ListTypeHandler_2"/>
+</resultMap>
+
+<select id="getAnonymousStructure_7E0E3711C8F04CD2E91C507B336679CC" resultMap="AnonymousStructure_7E0E3711C8F04CD2E91C507B336679CC">
+SELECT `lcap_entity_meta_f803ac`.`id` `T1_C1`,`lcap_entity_meta_f803ac`.`created_time` `T1_C2`,`lcap_entity_meta_f803ac`.`updated_time` `T1_C3`,`lcap_entity_meta_f803ac`.`created_by` `T1_C4`,`lcap_entity_meta_f803ac`.`updated_by` `T1_C5`,`lcap_entity_meta_f803ac`.`entity_name` `T1_C6`,`lcap_entity_meta_f803ac`.`table_name` `T1_C7`,`lcap_entity_meta_f803ac`.`entity_description` `T1_C8`,`lcap_entity_meta_f803ac`.`properties` `T1_C9` FROM `lcap_entity_meta_f803ac` 
+<if test=" 1==1 and ( saveEntityOrLogicNameList!=null and saveEntityOrLogicNameList.size()>0 ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+( NOT ( `lcap_entity_meta_f803ac`.`entity_name` IN 
+<foreach item="item" index="index" collection="saveEntityOrLogicNameList" open="(" separator="," close=")">
+#{item} 
+</foreach> ) ) 
+</trim> 
+</if>
+</select>
+
+<resultMap id="AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5">
+    <id column="T1_C1" property="lCAPDataPermission.id"/>
+    <result column="T1_C2" property="lCAPDataPermission.createdTime"/>
+    <result column="T1_C3" property="lCAPDataPermission.updatedTime"/>
+    <result column="T1_C4" property="lCAPDataPermission.createdBy"/>
+    <result column="T1_C5" property="lCAPDataPermission.updatedBy"/>
+    <result column="T1_C6" property="lCAPDataPermission.resourceName"/>
+    <result column="T1_C7" property="lCAPDataPermission.resourceType"/>
+    <result column="T1_C8" property="lCAPDataPermission.rowRuleType"/>
+    <result column="T1_C9" property="lCAPDataPermission.relation"/>
+    <result column="T1_C10" property="lCAPDataPermission.roleId"/>
+</resultMap>
+
+<select id="getAnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5" resultMap="AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5">
+SELECT `lcap_data_permission_f803ac`.`id` `T1_C1`,`lcap_data_permission_f803ac`.`created_time` `T1_C2`,`lcap_data_permission_f803ac`.`updated_time` `T1_C3`,`lcap_data_permission_f803ac`.`created_by` `T1_C4`,`lcap_data_permission_f803ac`.`updated_by` `T1_C5`,`lcap_data_permission_f803ac`.`resource_name` `T1_C6`,`lcap_data_permission_f803ac`.`resource_type` `T1_C7`,`lcap_data_permission_f803ac`.`row_rule_type` `T1_C8`,`lcap_data_permission_f803ac`.`relation` `T1_C9`,`lcap_data_permission_f803ac`.`role_id` `T1_C10` FROM `lcap_data_permission_f803ac` 
+<if test=" 1==1 or ( entityOrLogicNameList!=null and entityOrLogicNameList.size()>0 ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+
+<if test=" 1==1 and ( entityOrLogicNameList!=null and entityOrLogicNameList.size()>0 ) ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+( `lcap_data_permission_f803ac`.`resource_name` IN 
+<foreach item="item" index="index" collection="entityOrLogicNameList" open="(" separator="," close=")">
+#{item} 
+</foreach> ) 
+</trim> 
+</if> 
+<if test=" 1==1 ">
+
+<trim  prefix="and">
+(`lcap_data_permission_f803ac`.`resource_type` = 'entity') 
+</trim> 
+</if> 
+</trim> 
+</if>
+</select>
+
+<resultMap id="AnonymousStructure_F596B746DC08704D55A3AF5333D966BF" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_F596B746DC08704D55A3AF5333D966BF">
+    <id column="T1_C1" property="lCAPLogicMeta.id"/>
+    <result column="T1_C2" property="lCAPLogicMeta.createdTime"/>
+    <result column="T1_C3" property="lCAPLogicMeta.updatedTime"/>
+    <result column="T1_C4" property="lCAPLogicMeta.createdBy"/>
+    <result column="T1_C5" property="lCAPLogicMeta.updatedBy"/>
+    <result column="T1_C6" property="lCAPLogicMeta.logicName"/>
+    <result column="T1_C7" property="lCAPLogicMeta.returnShape"/>
+    <result column="T1_C8" property="lCAPLogicMeta.properties" typeHandler="com.jystudy.coffee0528.repository.handler.ListTypeHandler_3"/>
+    <result column="T1_C9" property="lCAPLogicMeta.logicDescription"/>
+</resultMap>
+
+<select id="getAnonymousStructure_F596B746DC08704D55A3AF5333D966BF" resultMap="AnonymousStructure_F596B746DC08704D55A3AF5333D966BF">
+SELECT `lcap_logic_meta_f803ac`.`id` `T1_C1`,`lcap_logic_meta_f803ac`.`created_time` `T1_C2`,`lcap_logic_meta_f803ac`.`updated_time` `T1_C3`,`lcap_logic_meta_f803ac`.`created_by` `T1_C4`,`lcap_logic_meta_f803ac`.`updated_by` `T1_C5`,`lcap_logic_meta_f803ac`.`logic_name` `T1_C6`,`lcap_logic_meta_f803ac`.`return_shape` `T1_C7`,`lcap_logic_meta_f803ac`.`properties` `T1_C8`,`lcap_logic_meta_f803ac`.`logic_description` `T1_C9` FROM `lcap_logic_meta_f803ac` 
+<if test=" 1==1 and ( saveEntityOrLogicNameList!=null and saveEntityOrLogicNameList.size()>0 ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+( NOT ( `lcap_logic_meta_f803ac`.`logic_name` IN 
+<foreach item="item" index="index" collection="saveEntityOrLogicNameList" open="(" separator="," close=")">
+#{item} 
+</foreach> ) ) 
+</trim> 
+</if>
+</select>
+
+<resultMap id="AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A51" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5">
+    <id column="T1_C1" property="lCAPDataPermission.id"/>
+    <result column="T1_C2" property="lCAPDataPermission.createdTime"/>
+    <result column="T1_C3" property="lCAPDataPermission.updatedTime"/>
+    <result column="T1_C4" property="lCAPDataPermission.createdBy"/>
+    <result column="T1_C5" property="lCAPDataPermission.updatedBy"/>
+    <result column="T1_C6" property="lCAPDataPermission.resourceName"/>
+    <result column="T1_C7" property="lCAPDataPermission.resourceType"/>
+    <result column="T1_C8" property="lCAPDataPermission.rowRuleType"/>
+    <result column="T1_C9" property="lCAPDataPermission.relation"/>
+    <result column="T1_C10" property="lCAPDataPermission.roleId"/>
+</resultMap>
+
+<select id="getAnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A51" resultMap="AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A51">
+SELECT `lcap_data_permission_f803ac`.`id` `T1_C1`,`lcap_data_permission_f803ac`.`created_time` `T1_C2`,`lcap_data_permission_f803ac`.`updated_time` `T1_C3`,`lcap_data_permission_f803ac`.`created_by` `T1_C4`,`lcap_data_permission_f803ac`.`updated_by` `T1_C5`,`lcap_data_permission_f803ac`.`resource_name` `T1_C6`,`lcap_data_permission_f803ac`.`resource_type` `T1_C7`,`lcap_data_permission_f803ac`.`row_rule_type` `T1_C8`,`lcap_data_permission_f803ac`.`relation` `T1_C9`,`lcap_data_permission_f803ac`.`role_id` `T1_C10` FROM `lcap_data_permission_f803ac` 
+<if test=" 1==1 or ( entityOrLogicNameList!=null and entityOrLogicNameList.size()>0 ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+
+<if test=" 1==1 and ( entityOrLogicNameList!=null and entityOrLogicNameList.size()>0 ) ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+( `lcap_data_permission_f803ac`.`resource_name` IN 
+<foreach item="item" index="index" collection="entityOrLogicNameList" open="(" separator="," close=")">
+#{item} 
+</foreach> ) 
+</trim> 
+</if> 
+<if test=" 1==1 ">
+
+<trim  prefix="and">
+(`lcap_data_permission_f803ac`.`resource_type` = 'logic') 
+</trim> 
+</if> 
+</trim> 
+</if>
+</select>
+</mapper>

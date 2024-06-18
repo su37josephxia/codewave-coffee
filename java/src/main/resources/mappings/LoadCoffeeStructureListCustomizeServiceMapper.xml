@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadCoffeeStructureListCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LoadCoffeeStructureListCustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_0517296F15B1AE1BB362F7F8705A16CD" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_0517296F15B1AE1BB362F7F8705A16CD">
+    <id column="T1_C1" property="coffee.id"/>
+    <result column="T1_C2" property="coffee.createdTime"/>
+    <result column="T1_C3" property="coffee.updatedTime"/>
+    <result column="T1_C4" property="coffee.createdBy"/>
+    <result column="T1_C5" property="coffee.updatedBy"/>
+    <result column="T1_C6" property="coffee.coffeename"/>
+    <result column="T1_C7" property="coffee.description"/>
+    <result column="T1_C8" property="coffee.price"/>
+    <result column="T1_C9" property="coffee.coffeeImage"/>
+    <result column="T1_C10" property="coffee.coffeeCategory"/>
+    <result column="T1_C11" property="coffee.isDisplay"/>
+</resultMap>
+
+<select id="getAnonymousStructure_0517296F15B1AE1BB362F7F8705A16CD" resultMap="AnonymousStructure_0517296F15B1AE1BB362F7F8705A16CD">
+SELECT `coffee`.`id` `T1_C1`,`coffee`.`created_time` `T1_C2`,`coffee`.`updated_time` `T1_C3`,`coffee`.`created_by` `T1_C4`,`coffee`.`updated_by` `T1_C5`,`coffee`.`coffeename` `T1_C6`,`coffee`.`description` `T1_C7`,`coffee`.`price` `T1_C8`,`coffee`.`coffee_image` `T1_C9`,`coffee`.`coffee_category` `T1_C10`,`coffee`.`is_display` `T1_C11` FROM `coffee` 
+<if test=" 1==1 ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+`coffee`.`is_display` = 1 
+</trim> 
+</if>
+</select>
+</mapper>
