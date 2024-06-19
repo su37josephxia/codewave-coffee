@@ -7,10 +7,14 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
-      - ./src/main/resources/db:/db
+      - ./mysql/log:/var/log/mysql # 映射日志目录，宿主机:容器
+      - ./mysql/data:/var/lib/mysql # 映射数据目录，宿主机:容器
+      - ./src/main/resources/db:/db # 将本地的sql语句挂载的容器中
     environment:
       MYSQL_ROOT_PASSWORD: example
       MYSQL_DATABASE: coffee0528
+      MYSQL_CHARACTER_SET_SERVER: utf8mb4 # 增加这一行指定服务器的编码类型
+      MYSQL_COLLATION_SERVER: utf8mb4_unicode_ci # 增加这一行指定服务器的排序规则
   adminer:
     image: adminer
     restart: always
