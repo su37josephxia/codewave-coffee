@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPGetColumnRuleByDataPermissionIdCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPGetColumnRuleByDataPermissionIdCustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_E968FE724CCB8A09F4B61C06FD779FA5" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_E968FE724CCB8A09F4B61C06FD779FA5">
+    <id column="T1_C1" property="lCAPColumnRule.id"/>
+    <result column="T1_C2" property="lCAPColumnRule.createdTime"/>
+    <result column="T1_C3" property="lCAPColumnRule.updatedTime"/>
+    <result column="T1_C4" property="lCAPColumnRule.createdBy"/>
+    <result column="T1_C5" property="lCAPColumnRule.updatedBy"/>
+    <result column="T1_C6" property="lCAPColumnRule.dataPermissionId"/>
+    <result column="T1_C7" property="lCAPColumnRule.propertyName"/>
+    <result column="T1_C8" property="lCAPColumnRule.columnRuleType"/>
+</resultMap>
+
+<select id="getAnonymousStructure_E968FE724CCB8A09F4B61C06FD779FA5" resultMap="AnonymousStructure_E968FE724CCB8A09F4B61C06FD779FA5">
+SELECT `lcap_column_rule_f803ac`.`id` `T1_C1`,`lcap_column_rule_f803ac`.`created_time` `T1_C2`,`lcap_column_rule_f803ac`.`updated_time` `T1_C3`,`lcap_column_rule_f803ac`.`created_by` `T1_C4`,`lcap_column_rule_f803ac`.`updated_by` `T1_C5`,`lcap_column_rule_f803ac`.`data_permission_id` `T1_C6`,`lcap_column_rule_f803ac`.`property_name` `T1_C7`,`lcap_column_rule_f803ac`.`column_rule_type` `T1_C8` FROM `lcap_column_rule_f803ac` 
+<if test=" 1==1 or dataPermissionId!=null ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+
+<if test=" 1==1 and dataPermissionId!=null ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+`lcap_column_rule_f803ac`.`data_permission_id` = #{dataPermissionId} 
+</trim> 
+</if> 
+<if test=" 1==1 ">
+
+<trim  prefix="and">
+(( NOT ( `lcap_column_rule_f803ac`.`id` IS NULL ) )) 
+</trim> 
+</if> 
+</trim> 
+</if>
+</select>
+</mapper>

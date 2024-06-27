@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated OrderEntityEntity Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.entities.OrderEntityEntityMapper">
+    <resultMap id="BaseResultMap" type="com.jystudy.coffee0528.domain.entities.OrderEntityEntity">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="total_amount" jdbcType="DECIMAL" property="totalAmount" />
+        <result column="coffee_count" jdbcType="BIGINT" property="coffeeCount" />
+        <result column="order_status" jdbcType="VARCHAR" property="orderStatus" />
+        <result column="consignee_name" jdbcType="VARCHAR" property="consigneeName" />
+        <result column="consignee_phone" jdbcType="VARCHAR" property="consigneePhone" />
+        <result column="consignee_area" jdbcType="VARCHAR" property="consigneeArea" />
+        <result column="consignee_address" jdbcType="VARCHAR" property="consigneeAddress" />
+        <result column="pickup_method" jdbcType="VARCHAR" property="pickupMethod" />
+        <result column="remark" jdbcType="VARCHAR" property="remark" />
+        <result column="coffee_list" jdbcType="VARCHAR" property="coffeeList"  typeHandler="com.jystudy.coffee0528.repository.handler.ListTypeHandler_4" />
+    </resultMap>
+
+    <!--
+       ###################################################
+       ######### mysql
+       ###################################################
+     -->
+    <insert id="insert" parameterType="com.jystudy.coffee0528.domain.entities.OrderEntityEntity"  >
+        INSERT INTO `order_entity` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`total_amount`
+            ,`coffee_count`
+            ,`order_status`
+            ,`consignee_name`
+            ,`consignee_phone`
+            ,`consignee_area`
+            ,`consignee_address`
+            ,`pickup_method`
+            ,`remark`
+            ,`coffee_list`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{totalAmount,jdbcType=DECIMAL}
+            ,#{coffeeCount,jdbcType=BIGINT}
+            ,#{orderStatus,jdbcType=VARCHAR}
+            ,#{consigneeName,jdbcType=VARCHAR}
+            ,#{consigneePhone,jdbcType=VARCHAR}
+            ,#{consigneeArea,jdbcType=VARCHAR}
+            ,#{consigneeAddress,jdbcType=VARCHAR}
+            ,#{pickupMethod,jdbcType=VARCHAR}
+            ,#{remark,jdbcType=VARCHAR}
+            ,#{coffeeList,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_4}
+        )
+    </insert>
+
+    <insert id="batchInsert"  parameterType="java.util.List" >
+        INSERT INTO `order_entity` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`total_amount`
+            ,`coffee_count`
+            ,`order_status`
+            ,`consignee_name`
+            ,`consignee_phone`
+            ,`consignee_area`
+            ,`consignee_address`
+            ,`pickup_method`
+            ,`remark`
+            ,`coffee_list`
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.id,jdbcType=BIGINT}
+            ,#{item.createdTime,jdbcType=TIMESTAMP}
+            ,#{item.updatedTime,jdbcType=TIMESTAMP}
+            ,#{item.createdBy,jdbcType=VARCHAR}
+            ,#{item.updatedBy,jdbcType=VARCHAR}
+            ,#{item.totalAmount,jdbcType=DECIMAL}
+            ,#{item.coffeeCount,jdbcType=BIGINT}
+            ,#{item.orderStatus,jdbcType=VARCHAR}
+            ,#{item.consigneeName,jdbcType=VARCHAR}
+            ,#{item.consigneePhone,jdbcType=VARCHAR}
+            ,#{item.consigneeArea,jdbcType=VARCHAR}
+            ,#{item.consigneeAddress,jdbcType=VARCHAR}
+            ,#{item.pickupMethod,jdbcType=VARCHAR}
+            ,#{item.remark,jdbcType=VARCHAR}
+            ,#{item.coffeeList,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_4}
+         )
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.jystudy.coffee0528.domain.entities.OrderEntityEntity" >
+        UPDATE `order_entity`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('totalAmount')">`total_amount` = #{bean.totalAmount, jdbcType= DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('coffeeCount')">`coffee_count` = #{bean.coffeeCount, jdbcType= BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('orderStatus')">`order_status` = #{bean.orderStatus, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('consigneeName')">`consignee_name` = #{bean.consigneeName, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('consigneePhone')">`consignee_phone` = #{bean.consigneePhone, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('consigneeArea')">`consignee_area` = #{bean.consigneeArea, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('consigneeAddress')">`consignee_address` = #{bean.consigneeAddress, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('pickupMethod')">`pickup_method` = #{bean.pickupMethod, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('remark')">`remark` = #{bean.remark, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('coffeeList')">`coffee_list` = #{bean.coffeeList, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_4},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+    <!-- todo -->
+    <update id="batchUpdate" parameterType="com.jystudy.coffee0528.domain.entities.OrderEntityEntity" >
+        UPDATE `order_entity`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('totalAmount')">`total_amount` = #{bean.totalAmount, jdbcType= DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('coffeeCount')">`coffee_count` = #{bean.coffeeCount, jdbcType= BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('orderStatus')">`order_status` = #{bean.orderStatus, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('consigneeName')">`consignee_name` = #{bean.consigneeName, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('consigneePhone')">`consignee_phone` = #{bean.consigneePhone, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('consigneeArea')">`consignee_area` = #{bean.consigneeArea, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('consigneeAddress')">`consignee_address` = #{bean.consigneeAddress, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('pickupMethod')">`pickup_method` = #{bean.pickupMethod, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('remark')">`remark` = #{bean.remark, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('coffeeList')">`coffee_list` = #{bean.coffeeList, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_4},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM `order_entity` where `id` = #{id}
+    </delete>
+
+
+    <delete id="batchDelete" >
+        DELETE FROM `order_entity` where `id` in
+        <foreach collection="list" item="pkValueItem" index="index"  separator="," open="(" close=")">
+            #{pkValueItem}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReference">
+        DELETE FROM `order_entity`
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'totalAmount'">
+                    AND `total_amount` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'coffeeCount'">
+                    AND `coffee_count` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'orderStatus'">
+                    AND `order_status` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'consigneeName'">
+                    AND `consignee_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'consigneePhone'">
+                    AND `consignee_phone` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'consigneeArea'">
+                    AND `consignee_area` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'consigneeAddress'">
+                    AND `consignee_address` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'pickupMethod'">
+                    AND `pickup_method` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'remark'">
+                    AND `remark` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'coffeeList'">
+                    AND `coffee_list` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
+    <select id="existReference" resultType="java.lang.Long" >
+        select `id` from `order_entity` 
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'totalAmount'">
+                    AND `total_amount` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'coffeeCount'">
+                    AND `coffee_count` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'orderStatus'">
+                    AND `order_status` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'consigneeName'">
+                    AND `consignee_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'consigneePhone'">
+                    AND `consignee_phone` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'consigneeArea'">
+                    AND `consignee_area` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'consigneeAddress'">
+                    AND `consignee_address` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'pickupMethod'">
+                    AND `pickup_method` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'remark'">
+                    AND `remark` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'coffeeList'">
+                    AND `coffee_list` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+         LIMIT 1
+    </select>
+
+
+    <select id="selectOne" resultMap="BaseResultMap" >
+        select *
+        from `order_entity`
+        where `id`=#{id}
+    </select>
+
+    <select id="selectList" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter" resultMap="BaseResultMap" >
+        select *
+        from `order_entity`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <select id="count" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter" resultType="java.lang.Integer" >
+        select count(1) from `order_entity`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <insert id="createOrUpdate" parameterType="com.jystudy.coffee0528.domain.entities.OrderEntityEntity">
+        INSERT INTO `order_entity` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`total_amount`
+            ,`coffee_count`
+            ,`order_status`
+            ,`consignee_name`
+            ,`consignee_phone`
+            ,`consignee_area`
+            ,`consignee_address`
+            ,`pickup_method`
+            ,`remark`
+            ,`coffee_list`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{totalAmount,jdbcType=DECIMAL}
+            ,#{coffeeCount,jdbcType=BIGINT}
+            ,#{orderStatus,jdbcType=VARCHAR}
+            ,#{consigneeName,jdbcType=VARCHAR}
+            ,#{consigneePhone,jdbcType=VARCHAR}
+            ,#{consigneeArea,jdbcType=VARCHAR}
+            ,#{consigneeAddress,jdbcType=VARCHAR}
+            ,#{pickupMethod,jdbcType=VARCHAR}
+            ,#{remark,jdbcType=VARCHAR}
+            ,#{coffeeList,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_4}
+        )
+    </insert>
+
+
+    <update id="updateBy">
+        UPDATE `order_entity`
+        <set>
+        <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('totalAmount')">`total_amount` = #{bean.totalAmount, jdbcType= DECIMAL},</if>
+        <if test="updateFields == null or updateFields.contains('coffeeCount')">`coffee_count` = #{bean.coffeeCount, jdbcType= BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('orderStatus')">`order_status` = #{bean.orderStatus, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('consigneeName')">`consignee_name` = #{bean.consigneeName, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('consigneePhone')">`consignee_phone` = #{bean.consigneePhone, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('consigneeArea')">`consignee_area` = #{bean.consigneeArea, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('consigneeAddress')">`consignee_address` = #{bean.consigneeAddress, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('pickupMethod')">`pickup_method` = #{bean.pickupMethod, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('remark')">`remark` = #{bean.remark, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('coffeeList')">`coffee_list` = #{bean.coffeeList, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_4},</if>
+        </set>
+        where ${filter.sql("mysql")} 
+
+    </update>
+
+    <delete id="deleteBy" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter">
+        DELETE FROM `order_entity`
+        where ${filter.sql("mysql")} 
+    </delete>
+</mapper>

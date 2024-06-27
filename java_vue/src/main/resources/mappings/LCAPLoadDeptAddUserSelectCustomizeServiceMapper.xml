@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPLoadDeptAddUserSelectCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPLoadDeptAddUserSelectCustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_47C167E7217746A55100F50A57F637C0" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_47C167E7217746A55100F50A57F637C0">
+    <result column="T2_C1" property="lCAPUser.id"/>
+    <result column="T2_C2" property="lCAPUser.createdTime"/>
+    <result column="T2_C3" property="lCAPUser.updatedTime"/>
+    <result column="T2_C4" property="lCAPUser.userId"/>
+    <result column="T2_C5" property="lCAPUser.userName"/>
+    <result column="T2_C6" property="lCAPUser.password"/>
+    <result column="T2_C7" property="lCAPUser.phone"/>
+    <result column="T2_C8" property="lCAPUser.email"/>
+    <result column="T2_C9" property="lCAPUser.displayName"/>
+    <result column="T2_C10" property="lCAPUser.status"/>
+    <result column="T2_C11" property="lCAPUser.source"/>
+    <result column="T2_C12" property="lCAPUser.directLeaderId"/>
+</resultMap>
+
+<select id="getAnonymousStructure_47C167E7217746A55100F50A57F637C0" resultMap="AnonymousStructure_47C167E7217746A55100F50A57F637C0">
+SELECT `lcap_user_f803ac`.`id` `T2_C1`,`lcap_user_f803ac`.`created_time` `T2_C2`,`lcap_user_f803ac`.`updated_time` `T2_C3`,`lcap_user_f803ac`.`user_id` `T2_C4`,`lcap_user_f803ac`.`user_name` `T2_C5`,`lcap_user_f803ac`.`password` `T2_C6`,`lcap_user_f803ac`.`phone` `T2_C7`,`lcap_user_f803ac`.`email` `T2_C8`,`lcap_user_f803ac`.`display_name` `T2_C9`,`lcap_user_f803ac`.`status` `T2_C10`,`lcap_user_f803ac`.`source` `T2_C11`,`lcap_user_f803ac`.`direct_leader_id` `T2_C12` FROM `lcap_user_dept_mapping_f803ac` RIGHT JOIN `lcap_user_f803ac` ON `lcap_user_dept_mapping_f803ac`.`user_id` = `lcap_user_f803ac`.`user_id` 
+<if test=" 1==1 or deptId!=null or search!=null ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+
+<if test=" 1==1 or deptId!=null ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+
+<if test=" 1==1 and deptId!=null ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+( NOT `lcap_user_dept_mapping_f803ac`.`dept_id` = #{deptId} ) 
+</trim> 
+</if> 
+<if test=" 1==1 ">
+
+<trim  prefix="or">
+(( `lcap_user_dept_mapping_f803ac`.`dept_id` IS NULL )) 
+</trim> 
+</if> 
+</trim> 
+</if> 
+<if test=" 1==1 and search!=null ">
+
+<trim  prefix="and">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+`lcap_user_f803ac`.`user_name` LIKE concat('%', concat(#{search}, '%')) 
+</trim> 
+</trim> 
+</if> 
+</trim> 
+</if> 
+<if test=" 1==1 ">
+
+<trim  prefix="ORDER BY" suffixOverrides=",">
+
+<if test=" 1==1 ">
+
+<trim  suffix=",">
+`lcap_user_f803ac`.`id` 
+<if test=" 1==1 ">
+ASC 
+</if> 
+</trim> 
+</if> 
+</trim> 
+</if>
+</select>
+</mapper>

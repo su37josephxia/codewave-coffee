@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPEntityMeta Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.entities.LCAPEntityMetaMapper">
+    <resultMap id="BaseResultMap" type="com.jystudy.coffee0528.domain.entities.LCAPEntityMeta">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="entity_name" jdbcType="VARCHAR" property="entityName" />
+        <result column="table_name" jdbcType="VARCHAR" property="tableName" />
+        <result column="entity_description" jdbcType="VARCHAR" property="entityDescription" />
+        <result column="properties" jdbcType="VARCHAR" property="properties"  typeHandler="com.jystudy.coffee0528.repository.handler.ListTypeHandler_2" />
+    </resultMap>
+
+    <!--
+       ###################################################
+       ######### mysql
+       ###################################################
+     -->
+    <insert id="insert" parameterType="com.jystudy.coffee0528.domain.entities.LCAPEntityMeta"  >
+        INSERT INTO `lcap_entity_meta_f803ac` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`entity_name`
+            ,`table_name`
+            ,`entity_description`
+            ,`properties`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{entityName,jdbcType=VARCHAR}
+            ,#{tableName,jdbcType=VARCHAR}
+            ,#{entityDescription,jdbcType=VARCHAR}
+            ,#{properties,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_2}
+        )
+    </insert>
+
+    <insert id="batchInsert"  parameterType="java.util.List" >
+        INSERT INTO `lcap_entity_meta_f803ac` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`entity_name`
+            ,`table_name`
+            ,`entity_description`
+            ,`properties`
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.id,jdbcType=BIGINT}
+            ,#{item.createdTime,jdbcType=TIMESTAMP}
+            ,#{item.updatedTime,jdbcType=TIMESTAMP}
+            ,#{item.createdBy,jdbcType=VARCHAR}
+            ,#{item.updatedBy,jdbcType=VARCHAR}
+            ,#{item.entityName,jdbcType=VARCHAR}
+            ,#{item.tableName,jdbcType=VARCHAR}
+            ,#{item.entityDescription,jdbcType=VARCHAR}
+            ,#{item.properties,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_2}
+         )
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.jystudy.coffee0528.domain.entities.LCAPEntityMeta" >
+        UPDATE `lcap_entity_meta_f803ac`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('entityName')">`entity_name` = #{bean.entityName, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('tableName')">`table_name` = #{bean.tableName, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('entityDescription')">`entity_description` = #{bean.entityDescription, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('properties')">`properties` = #{bean.properties, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_2},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+    <!-- todo -->
+    <update id="batchUpdate" parameterType="com.jystudy.coffee0528.domain.entities.LCAPEntityMeta" >
+        UPDATE `lcap_entity_meta_f803ac`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('entityName')">`entity_name` = #{bean.entityName, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('tableName')">`table_name` = #{bean.tableName, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('entityDescription')">`entity_description` = #{bean.entityDescription, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('properties')">`properties` = #{bean.properties, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_2},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM `lcap_entity_meta_f803ac` where `id` = #{id}
+    </delete>
+
+
+    <delete id="batchDelete" >
+        DELETE FROM `lcap_entity_meta_f803ac` where `id` in
+        <foreach collection="list" item="pkValueItem" index="index"  separator="," open="(" close=")">
+            #{pkValueItem}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReference">
+        DELETE FROM `lcap_entity_meta_f803ac`
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'entityName'">
+                    AND `entity_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'tableName'">
+                    AND `table_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'entityDescription'">
+                    AND `entity_description` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'properties'">
+                    AND `properties` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
+    <select id="existReference" resultType="java.lang.Long" >
+        select `id` from `lcap_entity_meta_f803ac` 
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'entityName'">
+                    AND `entity_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'tableName'">
+                    AND `table_name` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'entityDescription'">
+                    AND `entity_description` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'properties'">
+                    AND `properties` = #{value, jdbcType=VARCHAR}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+         LIMIT 1
+    </select>
+
+
+    <select id="selectOne" resultMap="BaseResultMap" >
+        select *
+        from `lcap_entity_meta_f803ac`
+        where `id`=#{id}
+    </select>
+
+    <select id="selectList" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter" resultMap="BaseResultMap" >
+        select *
+        from `lcap_entity_meta_f803ac`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <select id="count" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter" resultType="java.lang.Integer" >
+        select count(1) from `lcap_entity_meta_f803ac`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <insert id="createOrUpdate" parameterType="com.jystudy.coffee0528.domain.entities.LCAPEntityMeta">
+        INSERT INTO `lcap_entity_meta_f803ac` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`entity_name`
+            ,`table_name`
+            ,`entity_description`
+            ,`properties`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{entityName,jdbcType=VARCHAR}
+            ,#{tableName,jdbcType=VARCHAR}
+            ,#{entityDescription,jdbcType=VARCHAR}
+            ,#{properties,jdbcType=VARCHAR,typeHandler=com.jystudy.coffee0528.repository.handler.ListTypeHandler_2}
+        )
+    </insert>
+
+
+    <update id="updateBy">
+        UPDATE `lcap_entity_meta_f803ac`
+        <set>
+        <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('entityName')">`entity_name` = #{bean.entityName, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('tableName')">`table_name` = #{bean.tableName, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('entityDescription')">`entity_description` = #{bean.entityDescription, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('properties')">`properties` = #{bean.properties, jdbcType= VARCHAR, typeHandler= com.jystudy.coffee0528.repository.handler.ListTypeHandler_2},</if>
+        </set>
+        where ${filter.sql("mysql")} 
+
+    </update>
+
+    <delete id="deleteBy" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter">
+        DELETE FROM `lcap_entity_meta_f803ac`
+        where ${filter.sql("mysql")} 
+    </delete>
+</mapper>

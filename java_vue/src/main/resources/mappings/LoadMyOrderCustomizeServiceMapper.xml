@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LoadMyOrderCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LoadMyOrderCustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_C3B3CBE93C4C48004BC78602CEAEE54B" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_C3B3CBE93C4C48004BC78602CEAEE54B">
+    <id column="T1_C1" property="orderEntity.id"/>
+    <result column="T1_C2" property="orderEntity.createdTime"/>
+    <result column="T1_C3" property="orderEntity.updatedTime"/>
+    <result column="T1_C4" property="orderEntity.createdBy"/>
+    <result column="T1_C5" property="orderEntity.updatedBy"/>
+    <result column="T1_C6" property="orderEntity.totalAmount"/>
+    <result column="T1_C7" property="orderEntity.coffeeCount"/>
+    <result column="T1_C8" property="orderEntity.orderStatus"/>
+    <result column="T1_C9" property="orderEntity.consigneeName"/>
+    <result column="T1_C10" property="orderEntity.consigneePhone"/>
+    <result column="T1_C11" property="orderEntity.consigneeArea"/>
+    <result column="T1_C12" property="orderEntity.consigneeAddress"/>
+    <result column="T1_C13" property="orderEntity.pickupMethod"/>
+    <result column="T1_C14" property="orderEntity.remark"/>
+    <result column="T1_C15" property="orderEntity.coffeeList" typeHandler="com.jystudy.coffee0528.repository.handler.ListTypeHandler_4"/>
+</resultMap>
+
+<select id="getAnonymousStructure_C3B3CBE93C4C48004BC78602CEAEE54B" resultMap="AnonymousStructure_C3B3CBE93C4C48004BC78602CEAEE54B">
+SELECT `order_entity`.`id` `T1_C1`,`order_entity`.`created_time` `T1_C2`,`order_entity`.`updated_time` `T1_C3`,`order_entity`.`created_by` `T1_C4`,`order_entity`.`updated_by` `T1_C5`,`order_entity`.`total_amount` `T1_C6`,`order_entity`.`coffee_count` `T1_C7`,`order_entity`.`order_status` `T1_C8`,`order_entity`.`consignee_name` `T1_C9`,`order_entity`.`consignee_phone` `T1_C10`,`order_entity`.`consignee_area` `T1_C11`,`order_entity`.`consignee_address` `T1_C12`,`order_entity`.`pickup_method` `T1_C13`,`order_entity`.`remark` `T1_C14`,`order_entity`.`coffee_list` `T1_C15` FROM `order_entity` 
+<if test=" 1==1 and ( global_CDD638E00095E76C42DB80D69DFDEC30_currentUser!=null and global_CDD638E00095E76C42DB80D69DFDEC30_currentUser.userName!=null ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+`order_entity`.`created_by` = #{global_CDD638E00095E76C42DB80D69DFDEC30_currentUser.userName} 
+</trim> 
+</if>
+</select>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPIsUserNameRepeatedCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPIsUserNameRepeatedCustomizeServiceMapper">
+
+<select id="getString" resultType="java.lang.String">
+SELECT `lcap_user_f803ac`.`user_name` `userName` FROM `lcap_user_f803ac` GROUP BY `lcap_user_f803ac`.`user_name` 
+<if test=" 1==1 ">
+ LIMIT ${( 2000 * ( 1 - 1 ) )}, ${2000} 
+</if>
+</select>
+
+<select id="countString" resultType="java.lang.Long">
+SELECT COUNT(*) FROM (SELECT `lcap_user_f803ac`.`user_name` `userName` FROM `lcap_user_f803ac` GROUP BY `lcap_user_f803ac`.`user_name`) t_lcap_as_count
+</select>
+</mapper>

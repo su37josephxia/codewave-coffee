@@ -1,0 +1,1278 @@
+<template>
+    <u-linear-layout :ref="`uLinearLayout1`" :type="`root`" :gap="`none`" style="height: 100%; --custom-start: auto; min-height: 200px">
+        <u-router-view :ref="`router_view1`"></u-router-view>
+        <u-linear-layout :ref="`linear_layout_265`" :direction="`horizontal`" :mode="`flex`" :alignment="`start`" :justify="`start`" :wrap="false" :gap="`none`" style="--update-key: j935; background-color: #f5f6fa; width: 100%; min-height: 200px; height: 100%">
+            <u-linear-layout :ref="`linear_layout_266`" :direction="`horizontal`" :widthStretch="`false`" :heightStretch="`false`" :gap="`none`" style="width: 20%; height: 100%">
+                <u-panel :ref="`panel_2`" :shadow="`never`" :bordered="false" style="--panel-body-padding-x: 0px; --panel-body-padding-y: 0px; border-style: solid; --update-key: kub3; border-top-width: 0px; border-left-width: 0px; border-right-width: 1px; border-bottom-width: 0px; border-top-right-radius: 0px; border-bottom-right-radius: 0px; border-color: #e5e5e5; height: 100%">
+                    <template #title :ref="`template_56`">
+                        <u-text :ref="`text_185`" :text="`部门列表`" style="font-size: 16px"></u-text>
+                    </template>
+                    <u-linear-layout :ref="`linear_layout_2`" :direction="`vertical`" :gap="`none`" :mode="`flex`" :justify="`start`" :alignment="`start`" style="margin-top: 0px; margin-left: 0px; margin-right: 0px; margin-bottom: 0px; --update-key: lyc0; width: 100%; height: 100%">
+                        <u-linear-layout :ref="`linear_layout_290`" :gap="`none`" :direction="`horizontal`" :mode="`flex`" :alignment="`start`" :justify="`center`" :heightStretch="`false`" style="--update-key: ucsm; position: relative; left: 0; top: 0; width: 100%; margin-top: 15px">
+                            <u-button :ref="`button_1`" :color="`primary`" :text="`添加部门`" :icon="`add`" :size="`normal`" :widthStretch="`false`" :heightStretch="`false`" @click="button_1_click($event)" style="--update-key: 61pq; width: 90%; height: 32px"></u-button>
+                        </u-linear-layout>
+                        <u-linear-layout :ref="`linear_layout_302`" :gap="`none`" :direction="`horizontal`" :mode="`flex`" :alignment="`start`" :justify="`center`" :heightStretch="`false`" style="--update-key: jt7v; position: relative; left: 0; top: 0; width: 100%; margin-top: 12px; margin-bottom: 12px">
+                            <u-input :ref="`input_2`" :placeholder="`搜索部门`" :value.sync="search" :prefix="`search`" :widthStretch="`false`" :clearable="true" @input="input_2_input($event)" style="width: 90%"></u-input>
+                        </u-linear-layout>
+                        <u-linear-layout :ref="`linear_layout_324`" :key="`linear_layout_324`" :gap="`none`" :mode="`flex`" :direction="`vertical`" :justify="`start`" :widthStretch="`false`" :alignment="`center`" v-if="$utils['HasValue']({ type: 'nasl.core.String', value: search })" style="width: 100%">
+                            <u-linear-layout :ref="`linear_layout_325`" :key="`linear_layout_325`" :gap="`none`" :mode="`flex`" :direction="`vertical`" :justify="`start`" :alignment="`start`" :widthStretch="`false`" v-if="$utils['HasValue']({ type: 'nasl.collection.List<app.dataSources.defaultDS.entities.LCAPDepartment>', value: searchDeptList })" style="width: 90%">
+                                <u-linear-layout :ref="`linear_layout_326`" :direction="`horizontal`" :gap="`none`" :widthStretch="`false`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="width: 100%; padding-top: 5px; --update-key: n13a; padding-bottom: 5px; border-bottom-width: 1px; border-style: solid; border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-color: #d8d8d8">
+                                    <u-text :ref="`text_281`" :text="`部门`" style="--custom-start: auto; font-family: PingFang SC; font-size: 14px; font-weight: 500; line-height: 22px; letter-spacing: 0px; color: #999999"></u-text>
+                                </u-linear-layout>
+                                <u-list-view :ref="`list_view_1`" :pageNumber="1" :pageSize="50" :dataSource="searchDeptList" :border="false" :heightStretch="`false`" key="list_view_1" style="width: 100%; min-width: 100px; border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-style: solid; --update-key: nkp4; margin-top: 4px; height: auto; --custom-start: auto; --list-view-item-background-hover: #edf3ff; --list-view-item-padding: 0px 0px; --list-view-item-background-selected: #edf3ff; --list-view-item-color-selected: #333">
+                                    <template #item="current" :ref="`template_120`" style="--custom-start: auto">
+                                        <u-linear-layout :ref="`linear_layout_328_${(current || {}).__nodeKey || (current || {}).index}`" :gap="`none`" :mode="`flex`" :direction="`vertical`" :alignment="`start`" :justify="`center`" @click="linear_layout_328_click($event, current)" style="--update-key: 0jo2; margin-bottom: 4px">
+                                            <u-text :ref="`text_282_${(current || {}).__nodeKey || (current || {}).index}`" :text="$utils['ToString']('nasl.core.String', ((current || {}).item || {}).name)" style="--custom-start: auto"></u-text>
+                                            <u-text :ref="`text_283_${(current || {}).__nodeKey || (current || {}).index}`" :text="$utils['ToString']('nasl.core.String', ((current || {}).item || {}).deptId)" style="color: #999"></u-text>
+                                        </u-linear-layout>
+                                    </template>
+                                </u-list-view>
+                            </u-linear-layout>
+                            <u-linear-layout :ref="`linear_layout_329`" :key="`linear_layout_329`" :gap="`none`" :mode="`flex`" :direction="`vertical`" :justify="`start`" :alignment="`start`" :widthStretch="`false`" v-if="$utils['HasValue']({ type: 'nasl.collection.List<{lCAPUser: app.dataSources.defaultDS.entities.LCAPUser, lCAPUserDeptMapping: app.dataSources.defaultDS.entities.LCAPUserDeptMapping}>', value: searchUserList })" style="width: 90%; margin-top: 8px; --update-key: nba2">
+                                <u-linear-layout :ref="`linear_layout_330`" :direction="`horizontal`" :gap="`none`" :widthStretch="`false`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="width: 100%; padding-top: 5px; --update-key: 21uh; padding-bottom: 5px; border-bottom-width: 1px; border-style: solid; border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-color: #d8d8d8">
+                                    <u-text :ref="`text_284`" :text="`成员`" style="--custom-start: auto; font-family: PingFang SC; font-size: 14px; font-weight: 500; line-height: 22px; letter-spacing: 0px; color: #999999"></u-text>
+                                </u-linear-layout>
+                                <u-list-view :ref="`list_view_2`" :pageNumber="1" :pageSize="50" :dataSource="searchUserList" :border="false" :heightStretch="`false`" key="list_view_2" style="width: 100%; min-width: 100px; border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-style: solid; --update-key: siwt; margin-top: 4px; height: auto; --custom-start: auto; --list-view-item-background-hover: #edf3ff; --list-view-item-padding: 0px 0px; --list-view-item-background-selected: #edf3ff; --list-view-item-color-selected: #333">
+                                    <template #item="current" :ref="`template_121`" style="--custom-start: auto">
+                                        <u-linear-layout :ref="`linear_layout_331_${(current || {}).__nodeKey || (current || {}).index}`" :gap="`none`" :mode="`flex`" :direction="`vertical`" :alignment="`start`" :justify="`center`" @click="linear_layout_331_click($event, current)" style="--update-key: 24ju; padding-top: 6px; padding-bottom: 6px; margin-bottom: 4px">
+                                            <u-text :ref="`text_285_${(current || {}).__nodeKey || (current || {}).index}`" :text="$utils['ToString']('nasl.core.String', (((current || {}).item || {}).lCAPUser || {}).userName)" style="--custom-start: auto"></u-text>
+                                        </u-linear-layout>
+                                    </template>
+                                </u-list-view>
+                            </u-linear-layout>
+                            <u-linear-layout :ref="`linear_layout_332`" :key="`linear_layout_332`" :direction="`horizontal`" :widthStretch="`false`" :mode="`flex`" :alignment="`start`" :justify="`center`" v-if="(searchDeptList || {}).length <= 0 && (searchUserList || {}).length <= 0" style="width: 90%">
+                                <u-text :ref="`text_287`" :text="`未搜到相关内容`" style="margin-top: 80px; --update-key: nkv8; color: #999"></u-text>
+                            </u-linear-layout>
+                        </u-linear-layout>
+                        <u-linear-layout :ref="`linear_layout_4`" :key="`linear_layout_4`" :gap="`none`" :mode="`block`" :direction="`horizontal`" :justify="`start`" :heightStretch="`false`" v-if="!$utils['HasValue']({ type: 'nasl.core.String', value: search })" style="width: 100%; --update-key: n19t; overflow: auto; --custom-start: auto; height: calc(100vh - 255px)">
+                            <u-tree-view-new :ref="`tree_view_new_1`" :value.sync="selectDept.deptId" :dataSource="$global.useDatabaseCallback()(__tree_view_new_1_handleDataSourceLoad)" :textField="`lCAPDepartment.name`" :valueField="`lCAPDepartment.deptId`" :parentField="`lCAPDepartment.parentDeptId`" :expandTrigger="`click-expander`" :checkControlled="false" @select="tree_view_new_1_select($event)" style="--tree-view-node-color-selected: #337eff; --tree-view-node-expander-color-selected: #999; height: 100%; width: 100%; --custom-start: auto; border: 0px; --tree-view-node-background-active: rgba(51, 126, 255, 0.12); --tree-view-node-background-selected: rgba(51, 126, 255, 0.12); --tree-view-node-expander-size: 40px; --tree-view-node-text-padding: 0px 0px">
+                                <template #item="current" :ref="`template_77`">
+                                    <u-linear-layout :ref="`linear_layout_306_${(current || {}).__nodeKey || (current || {}).index}`" :direction="`horizontal`" :gap="`none`" :mode="`flex`" :alignment="`center`" :justify="`space-between`" :wrap="false" @mouseenter="linear_layout_306_mouseenter($event, current)" @mouseleave="linear_layout_306_mouseleave($event, current)" style="--update-key: ex9e; height: 40px">
+                                        <u-text :ref="`text_221_${(current || {}).__nodeKey || (current || {}).index}`" :text="$utils['ToString']('nasl.core.String', (((current || {}).item || {}).lCAPDepartment || {}).name)" :widthStretch="`false`" :overflow="`ellipsis`" style="width: 85%; --custom-start: auto"></u-text>
+                                        <u-popup-combination :ref="`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`" :key="`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`" :placement="`bottom`" :display="`inline`" :widthStretch="`false`" v-if="(((current || {}).item || {}).lCAPDepartment || {}).deptId == (selectDept || {}).deptId || (((current || {}).item || {}).lCAPDepartment || {}).deptId == iconShow" style="border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-style: solid; --update-key: 0op8; margin-right: 12px; margin-bottom: 2px">
+                                            <template #reference :ref="`template_76_${(current || {}).__nodeKey || (current || {}).index}`">
+                                                <i-ico :ref="`ico_5_${(current || {}).__nodeKey || (current || {}).index}`" :name="`https://lcap-static-saas.nos-eastchina1.126.net/user/community1/1705393136356_pc_%E6%9B%B4%E5%A4%9A_%E7%BA%BF%E6%80%A7_16px.svg`" :icotype="`only`" style="--update-key: paz5; --custom-start: auto; cursor: pointer">
+                                                    <u-text :ref="`text_214_${(current || {}).__nodeKey || (current || {}).index}`" :text="`图标`"></u-text>
+                                                </i-ico>
+                                            </template>
+                                            <u-linear-layout :ref="`linear_layout_308_${(current || {}).__nodeKey || (current || {}).index}`" :direction="`horizontal`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="height: 32px; --custom-start: auto">
+                                                <u-link :ref="`link_8_${(current || {}).__nodeKey || (current || {}).index}`" :text="`编辑部门`" :hoverType="`color`" :display="`block`" :widthStretch="`true`" :heightStretch="`false`" @click="link_8_click($event, current)" :style="{}" style="font-size: 14px; --link-color: #333; --update-key: 3pht; --link-color-hover: #337eff"></u-link>
+                                            </u-linear-layout>
+                                            <u-linear-layout :ref="`linear_layout_311_${(current || {}).__nodeKey || (current || {}).index}`" :direction="`horizontal`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="height: 32px; --custom-start: auto">
+                                                <u-link :ref="`link_11_${(current || {}).__nodeKey || (current || {}).index}`" :text="`添加子部门`" :hoverType="`color`" :display="`block`" :widthStretch="`true`" :heightStretch="`false`" @click="link_11_click($event, current)" :style="{}" style="font-size: 14px; --link-color: #333; --update-key: 3pht; --link-color-hover: #337eff"></u-link>
+                                            </u-linear-layout>
+                                            <u-linear-layout :ref="`linear_layout_310_${(current || {}).__nodeKey || (current || {}).index}`" :direction="`horizontal`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="height: 32px; --custom-start: auto">
+                                                <u-link :ref="`link_10_${(current || {}).__nodeKey || (current || {}).index}`" :text="`设置部门主管`" :hoverType="`color`" :display="`block`" :widthStretch="`true`" :heightStretch="`false`" @click="link_10_click($event, current)" :style="{}" style="font-size: 14px; --link-color: #333; --update-key: 3pht; --link-color-hover: #337eff"></u-link>
+                                            </u-linear-layout>
+                                            <u-linear-layout :ref="`linear_layout_309_${(current || {}).__nodeKey || (current || {}).index}`" :direction="`horizontal`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="height: 32px; --custom-start: auto">
+                                                <u-link :ref="`link_9_${(current || {}).__nodeKey || (current || {}).index}`" :text="`删除`" :hoverType="`color`" :display="`block`" :widthStretch="`true`" :heightStretch="`false`" :disabled="(((current || {}).item || {}).lCAPDepartment || {}).deptId == rootDeptId" @click="link_9_click($event, current)" :style="{}" style="font-size: 14px; --link-color: #333; --update-key: 3pht; --link-color-hover: #337eff"></u-link>
+                                            </u-linear-layout>
+                                        </u-popup-combination>
+                                    </u-linear-layout>
+                                </template>
+                            </u-tree-view-new>
+                        </u-linear-layout>
+                    </u-linear-layout>
+                </u-panel>
+            </u-linear-layout>
+            <u-linear-layout :ref="`linear_layout_267`" :direction="`horizontal`" :mode="`block`" :widthStretch="`false`" :heightStretch="`false`" :gap="`none`" style="width: 80%; height: 100%">
+                <u-panel :ref="`panel_3`" :bordered="false" :shadow="`never`" style="border-left-width: 0px; border-style: solid; --update-key: m52n; height: 100%; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-top-left-radius: 0px; border-bottom-left-radius: 0px">
+                    <template #title :ref="`template_57`">
+                        <u-linear-layout :ref="`linear_layout_294`" :direction="`horizontal`" :layout="`inline`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="padding-bottom: 16px; --update-key: p6zy; border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 1px; border-style: solid; border-color: #e5e5e5; padding-top: 10px">
+                            <u-linear-layout :ref="`linear_layout_297`" :direction="`horizontal`" :widthStretch="`false`" :heightStretch="`false`" :layout="`none`" :mode="`flex`" :alignment="`center`" :justify="`center`" style="width: 45px; height: 45px; border-top-width: 0px; border-left-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-style: solid; --update-key: rws0; background-color: #ebf2ff; border-top-left-radius: 8px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; border-bottom-left-radius: 8px; --custom-start: auto">
+                                <i-ico :ref="`ico_9`" :name="`//minio-api.codewave-test.163yun.com/lowcode-static/user/newtest/1713843695595_1711962366172_1710987510308_%E5%AE%B9%E5%99%A8%20%281%29.svg`" :icotype="`only`" style="font-size: 24px; color: #337eff">
+                                    <u-text :ref="`text_298`" :text="`图标`"></u-text>
+                                </i-ico>
+                            </u-linear-layout>
+                            <u-linear-layout :ref="`linear_layout_298`" :direction="`horizontal`" :mode="`inline`" :heightStretch="`false`">
+                                <u-text :ref="`text_219`" :text="$utils['ToString']('nasl.core.String', (selectDept || {}).name)" :display="`block`" style="--custom-start: auto"></u-text>
+                            </u-linear-layout>
+                        </u-linear-layout>
+                    </template>
+                    <u-linear-layout :ref="`linear_layout_313`" :direction="`horizontal`" :gap="`none`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="margin-bottom: 16px; --update-key: g1ry">
+                        <u-button :ref="`button_4`" :color="`primary`" :text="`添加用户`" :icon="`add`" :widthStretch="`false`" :size="`normal`" @click="button_4_click($event)" style="margin-right: 12px; --update-key: 71vm; padding-left: 16px; padding-right: 16px"></u-button>
+                        <u-dropdown :ref="`dropdown_2`" :type="`normal`" style="--custom-start: auto">
+                            <template #title :ref="`template_87`">
+                                <u-text :ref="`text_241`" :text="`批量管理`"></u-text>
+                            </template>
+                            <u-dropdown-item :ref="`dropdown_item_5`" @click="dropdown_item_5_click($event)">
+                                <u-text :ref="`text_243`" :text="`调整部门`"></u-text>
+                            </u-dropdown-item>
+                            <u-dropdown-item :ref="`dropdown_item_6`" :disabled="(selectDept || {}).deptId == rootDeptId" @click="dropdown_item_6_click($event)">
+                                <u-text :ref="`text_244`" :text="`批量移除`"></u-text>
+                            </u-dropdown-item>
+                        </u-dropdown>
+                    </u-linear-layout>
+                    <u-linear-layout :ref="`linear_layout_314`" :direction="`horizontal`" :gap="`none`" :mode="`flex`" :justify="`start`" :alignment="`start`" style="height: 100%">
+                        <u-table-view :ref="`table_view_1`" :pagination="true" :pageSize="10" :pageNumber="1" :values.sync="userIds" :dataSource="$global.useDatabaseCallback()(__table_view_1_handleDataSourceLoad)" :showTotal="false" :valueField="`lCAPUser.userId`" :heightStretch="`false`" :widthStretch="`false`" :initialLoad="false" key="table_view_1" style="width: 100%">
+                            <u-table-view-column :ref="`table_view_column_1`" :type="`checkbox`" :width="`5%`" style="--custom-start: auto">
+                                <template #expander="current" :ref="`template_89`">
+                                    <u-table-view-expander :ref="`table_view_expander_1_${(current || {}).__nodeKey || (current || {}).index}`" :item="(current || {}).item"></u-table-view-expander>
+                                </template>
+                                <template #title :ref="`template_90`"></template>
+                                <template #cell="current" :ref="`template_91`"></template>
+                            </u-table-view-column>
+                            <u-table-view-column :ref="`table_view_column_2`" width="" style="--custom-start: auto">
+                                <template #expander="current" :ref="`template_92`">
+                                    <u-table-view-expander :ref="`table_view_expander_2_${(current || {}).__nodeKey || (current || {}).index}`" :item="(current || {}).item"></u-table-view-expander>
+                                </template>
+                                <template #title :ref="`template_93`">
+                                    <u-text :ref="`text_249`" :text="`名称`"></u-text>
+                                </template>
+                                <template #cell="current" :ref="`template_94`">
+                                    <u-linear-layout :ref="`linear_layout_316_${(current || {}).__nodeKey || (current || {}).index}`" :direction="`horizontal`" :gap="`none`" :mode="`flex`" :justify="`start`" :alignment="`center`" :wrap="false" style="--custom-start: auto">
+                                        <u-text :ref="`text_251_${(current || {}).__nodeKey || (current || {}).index}`" :text="$utils['ToString']('nasl.core.String', (((current || {}).item || {}).lCAPUser || {}).userName)" :overflow="`ellipsis`" style="--custom-start: auto"></u-text>
+                                        <u-label :ref="`label_2_${(current || {}).__nodeKey || (current || {}).index}`" :key="`label_2_${(current || {}).__nodeKey || (current || {}).index}`" :color="`success`" :text="`部门主管`" v-if="(((current || {}).item || {}).lCAPUserDeptMapping || {}).isDeptLeader == 1" style="background-color: #e9f8f1; color: #26bd71; border-top-left-radius: 4px; border-top-right-radius: 4px; border-bottom-right-radius: 4px; border-bottom-left-radius: 4px; --update-key: zcrv; margin-left: 8px"></u-label>
+                                    </u-linear-layout>
+                                </template>
+                            </u-table-view-column>
+                            <u-table-view-column :ref="`table_view_column_3`" width="" style="--custom-start: auto">
+                                <template #expander="current" :ref="`template_95`">
+                                    <u-table-view-expander :ref="`table_view_expander_3_${(current || {}).__nodeKey || (current || {}).index}`" :item="(current || {}).item"></u-table-view-expander>
+                                </template>
+                                <template #title :ref="`template_96`">
+                                    <u-text :ref="`text_250`" :text="`操作`"></u-text>
+                                </template>
+                                <template #cell="current" :ref="`template_97`">
+                                    <u-linear-layout :ref="`linear_layout_318_${(current || {}).__nodeKey || (current || {}).index}`" :direction="`horizontal`" :gap="`none`" :mode="`flex`" :justify="`start`" :alignment="`center`" style="--custom-start: auto">
+                                        <u-link :ref="`link_18_${(current || {}).__nodeKey || (current || {}).index}`" :key="`link_18_${(current || {}).__nodeKey || (current || {}).index}`" :text="`设置为部门主管`" @click="link_18_click($event, current)" v-if="(((current || {}).item || {}).lCAPUserDeptMapping || {}).isDeptLeader == 0" style="margin-right: 24px; --update-key: pyu2"></u-link>
+                                        <u-link :ref="`link_19_${(current || {}).__nodeKey || (current || {}).index}`" :key="`link_19_${(current || {}).__nodeKey || (current || {}).index}`" :text="`取消部门主管`" @click="link_19_click($event, current)" v-if="(((current || {}).item || {}).lCAPUserDeptMapping || {}).isDeptLeader == 1" style="margin-right: 38px; --update-key: iwn4"></u-link>
+                                        <u-link :ref="`link_20_${(current || {}).__nodeKey || (current || {}).index}`" :text="`调整部门`" @click="link_20_click($event, current)" style="margin-right: 28px; --update-key: wk3w"></u-link>
+                                        <u-link :ref="`link_21_${(current || {}).__nodeKey || (current || {}).index}`" :text="`移除`" :color="`danger`" :disabled="(((current || {}).item || {}).lCAPUserDeptMapping || {}).deptId == rootDeptId" @click="link_21_click($event, current)" style="margin-right: 28px; --update-key: wk3w; --custom-start: auto"></u-link>
+                                    </u-linear-layout>
+                                </template>
+                            </u-table-view-column>
+                        </u-table-view>
+                    </u-linear-layout>
+                </u-panel>
+            </u-linear-layout>
+        </u-linear-layout>
+        <u-modal :ref="`createORUpdateDeptPopup`" style="--custom-start: auto">
+            <template #foot :ref="`template7`">
+                <u-linear-layout :ref="`uLinearLayout6`" style="text-align: right">
+                    <u-button :ref="`uButton7`" :text="`取消`" @click="uButton7_click($event)"></u-button>
+                    <u-button :ref="`uButton4`" :color="`primary`" :text="`确定`" @click="uButton4_click($event)" style="--custom-start: auto"></u-button>
+                </u-linear-layout>
+            </template>
+            <template #body :ref="`template8`">
+                <u-linear-layout :ref="`uLinearLayout7`" :direction="`vertical`">
+                    <u-form :ref="`form1`" :labelLayout="`block`" key="form1">
+                        <u-form-item :ref="`uFormItem5`" :required="true" :rules="[{ validate: 'filled', message: `部门名称不得为空`, trigger: 'input+blur', required: true }]" :labelLayout="`block`">
+                            <u-input :ref="`uInput4`" :placeholder="`请输入`" :value.sync="inputDept.name" :clearable="true" :width="`full`"></u-input>
+                            <template #label :ref="`template26`">
+                                <u-text :ref="`text10`" :text="`部门名称`"></u-text>
+                            </template>
+                        </u-form-item>
+                        <u-form-item :ref="`uFormItem6`" :labelLayout="`block`" :required="true" :rules="[{ validate: 'filled', message: `部门标识不得为空`, trigger: 'input+blur', required: true }]">
+                            <u-input :ref="`uInput5`" :value.sync="inputDept.deptId" :placeholder="`请输入`" :width="`full`" :clearable="true"></u-input>
+                            <template #label :ref="`template27`">
+                                <u-text :ref="`text11`" :text="`部门标识`"></u-text>
+                            </template>
+                        </u-form-item>
+                        <u-form-item :ref="`form_item_1`" :key="`form_item_1`" :labelLayout="`block`" :required="!(isUpdateDept == 0 && (rootDeptId == undefined || rootDeptId == ``))" :rules="[{ validate: 'filled', message: `上级部门不得为空`, trigger: 'input+blur', required: true }]" :ignoreValidation="isUpdateDept == 0 && (rootDeptId == undefined || rootDeptId == ``)" v-if="!((selectDept || {}).deptId == rootDeptId && isUpdateDept == 1)" style="--custom-start: auto">
+                            <template #label :ref="`template_78`">
+                                <u-text :ref="`text_222`" :text="`上级部门`"></u-text>
+                            </template>
+                            <u-tree-select-new :ref="`tree_select_new_1`" :placeholder="`请选择`" :value.sync="inputDept.parentDeptId" :dataSource="$global.useDatabaseCallback()(__tree_select_new_1_handleDataSourceLoad)" :textField="`lCAPDepartment.name`" :valueField="`lCAPDepartment.deptId`" :parentField="`lCAPDepartment.parentDeptId`" :clearable="false" :width="`full`" :appendTo="`reference`" :disabled="isUpdateDept == 2" style="--tree-select-new-popper-width: 100%; --custom-start: auto; --tree-view-node-background-active: rgba(51, 126, 255, 0.12); --tree-view-node-background-selected: rgba(51, 126, 255, 0.12); --tree-view-node-color-selected: #337eff; --tree-view-node-expander-color-selected: #999">
+                                <template #item="current" :ref="`template_79`"></template>
+                            </u-tree-select-new>
+                        </u-form-item>
+                    </u-form>
+                </u-linear-layout>
+            </template>
+            <template #title :ref="`template9`">
+                <u-text :ref="`uText3`" :key="`uText3`" :text="`添加部门`" v-if="isUpdateDept == 0"></u-text>
+                <u-text :ref="`text_233`" :key="`text_233`" :text="`添加子部门`" v-if="isUpdateDept == 2" style="--custom-start: auto"></u-text>
+                <u-text :ref="`text_2`" :key="`text_2`" :text="`编辑部门`" v-if="isUpdateDept == 1" style="--custom-start: auto"></u-text>
+            </template>
+        </u-modal>
+        <u-modal :ref="`modal_1`" style="--custom-start: auto">
+            <template #foot :ref="`template_82`">
+                <u-linear-layout :ref="`linear_layout_312`" :justify="`center`" style="text-align: right">
+                    <u-button :ref="`button_3`" :text="`取 消`" @click="button_3_click($event)"></u-button>
+                    <u-button :ref="`button_2`" :color="`primary`" :text="`确 定`" @click="button_2_click($event)" style="--custom-start: auto"></u-button>
+                </u-linear-layout>
+            </template>
+            <template #body :ref="`template_83`">
+                <u-form :ref="`form_1`" :labelLayout="`block`" key="form_1" style="--custom-start: auto">
+                    <u-form-item :ref="`form_item_2`" :required="true" :layout="`center`" :labelLayout="`block`" :rules="[{ validate: 'filled', message: `部门主管不能为空`, trigger: 'input+blur', required: true }]">
+                        <template #label :ref="`template_85`">
+                            <u-text :ref="`text_236`" :text="`部门主管`"></u-text>
+                        </template>
+                        <u-select :ref="`select_1`" :clearable="true" :placeholder="`请选择`" :dataSource="$global.useDatabaseCallback()(__select_1_handleDataSourceLoad)" :pageSize="50" :dataSchema="`LoadDepartmentManagementSelect_1Structure`" :textField="`lCAPUser.userName`" :valueField="`lCAPUser.userId`" :pagination="true" :value.sync="userId" :width="`full`" :filterable="true" key="select_1"></u-select>
+                    </u-form-item>
+                </u-form>
+            </template>
+            <template #title :ref="`template_84`">
+                <u-text :ref="`text_235`" :text="`设置部门主管`"></u-text>
+            </template>
+        </u-modal>
+        <u-modal :ref="`modal_2`" style="--custom-start: auto">
+            <template #foot :ref="`template_99`">
+                <u-linear-layout :ref="`linear_layout_319`" :justify="`center`" style="text-align: right">
+                    <u-button :ref="`button_7`" :text="`取 消`" @click="button_7_click($event)"></u-button>
+                    <u-button :ref="`button_6`" :color="`primary`" :text="`确 定`" @click="button_6_click($event)" style="--custom-start: auto"></u-button>
+                </u-linear-layout>
+            </template>
+            <template #body :ref="`template_100`">
+                <u-form :ref="`form_2`" :labelLayout="`block`" key="form_2" style="--custom-start: auto">
+                    <u-form-item :ref="`form_item_3`" :required="true" :layout="`center`" :labelLayout="`block`" :rules="[{ validate: 'notEquals', args: [`[]`], message: `用户名称不得为空`, trigger: 'input+blur' }]">
+                        <template #label :ref="`template_102`">
+                            <u-text :ref="`text_258`" :text="`用户名称`"></u-text>
+                        </template>
+                        <u-select :ref="`select_2`" :clearable="true" :placeholder="`请选择`" :dataSource="$global.useDatabaseCallback()(__select_2_handleDataSourceLoad)" :pageSize="50" :dataSchema="`LoadDepartmentManagementSelect_2Structure`" :textField="`lCAPUser.userName`" :valueField="`lCAPUser.userId`" :pagination="true" :value.sync="inputUser" :multiple="true" :width="`full`" :converter="`json`" :tagsOverflow="`collapse`" :filterable="true" :emptyText="`暂无数据`" :showEmptyText="true" key="select_2"></u-select>
+                    </u-form-item>
+                    <u-form-item :ref="`form_item_6`" :required="true" :layout="`center`" :labelLayout="`block`" style="--custom-start: auto">
+                        <template #label :ref="`template_106`">
+                            <u-text :ref="`text_262`" :text="`所属部门`"></u-text>
+                        </template>
+                        <u-input :ref="`input_4`" :placeholder="`请选择`" :value.sync="selectDept.name" :type="`text`" :readonly="false" :disabled="true" :width="`full`"></u-input>
+                    </u-form-item>
+                </u-form>
+            </template>
+            <template #title :ref="`template_101`">
+                <u-text :ref="`text_257`" :text="`添加用户`"></u-text>
+            </template>
+            <u-text :ref="`text_263`" :text="`普通文本`" style="--custom-start: auto"></u-text>
+        </u-modal>
+        <u-modal :ref="`modal_3`" :icon="`warning`" style="--custom-start: auto">
+            <template #foot :ref="`template_107`">
+                <u-linear-layout :ref="`linear_layout_320`" :justify="`center`" style="text-align: right">
+                    <u-button :ref="`button_10`" :text="`取 消`" @click="button_10_click($event)"></u-button>
+                    <u-button :ref="`button_9`" :color="`primary`" :text="`确 定`" @click="button_9_click($event)" style="--custom-start: auto"></u-button>
+                </u-linear-layout>
+            </template>
+            <template #body :ref="`template_108`">
+                <u-linear-layout :ref="`uLinearLayout10`" :gap="`none`" :mode="`flex`" :direction="`vertical`" :justify="`center`" :alignment="`start`" style="--custom-start: auto">
+                    <u-text :ref="`uText5`" :text="$utils['ToString']('nasl.core.String', genuText5_bindAttrs_text_expression_viewMatchExpression())"></u-text>
+                </u-linear-layout>
+            </template>
+            <template #title :ref="`template_109`">
+                <u-text :ref="`text_268`" :key="`text_268`" :text="`设置为部门主管`" v-if="!isCancelLeader"></u-text>
+                <u-text :ref="`text_270`" :key="`text_270`" :text="`取消部门主管`" v-if="isCancelLeader" style="--custom-start: auto"></u-text>
+            </template>
+        </u-modal>
+        <u-modal :ref="`modal_4`" style="--custom-start: auto">
+            <template #foot :ref="`template_110`">
+                <u-linear-layout :ref="`linear_layout_321`" :justify="`center`" style="text-align: right">
+                    <u-button :ref="`button_12`" :text="`取 消`" @click="button_12_click($event)"></u-button>
+                    <u-button :ref="`button_11`" :color="`primary`" :text="`确 定`" @click="button_11_click($event)" style="--custom-start: auto"></u-button>
+                </u-linear-layout>
+            </template>
+            <template #body :ref="`template_111`">
+                <u-form :ref="`form_3`" key="form_3" style="--custom-start: auto">
+                    <u-form-item :ref="`form_item_7`" :required="true" :layout="`center`" :labelLayout="`block`" :rules="[{ validate: 'filled', message: `所属部门不得为空`, trigger: 'input+blur', required: true }]">
+                        <template #label :ref="`template_113`">
+                            <u-text :ref="`text_273`" :text="`所属部门`"></u-text>
+                        </template>
+                        <u-tree-select-new :ref="`tree_select_new_2`" :placeholder="`请选择`" :value.sync="batchDeptId" :dataSource="$global.useDatabaseCallback()(__tree_select_new_2_handleDataSourceLoad)" :textField="`lCAPDepartment.name`" :valueField="`lCAPDepartment.deptId`" :parentField="`lCAPDepartment.parentDeptId`" :clearable="false" :width="`full`" :appendTo="`reference`" :disabled="false" style="--tree-select-new-popper-width: 100%; --custom-start: auto; --tree-view-node-background-active: rgba(51, 126, 255, 0.12); --tree-view-node-background-selected: rgba(51, 126, 255, 0.12); --tree-view-node-color-selected: #337eff; --tree-view-node-expander-color-selected: #999">
+                            <template #item="current" :ref="`template_80`"></template>
+                        </u-tree-select-new>
+                    </u-form-item>
+                </u-form>
+            </template>
+            <template #title :ref="`template_112`">
+                <u-text :ref="`text_272`" :text="`调整部门`"></u-text>
+            </template>
+        </u-modal>
+        <u-modal :ref="`deleteDeptPopup`" :size="`normal`" :icon="`warning`" style="--custom-start: auto">
+            <template #foot :ref="`template10`">
+                <u-linear-layout :ref="`uLinearLayout8`" style="text-align: right">
+                    <u-button :ref="`uButton10`" :text="`取消`" @click="uButton10_click($event)"></u-button>
+                    <u-button :ref="`uButton9`" :color="`primary`" :text="`确定`" @click="uButton9_click($event)" style="--custom-start: auto"></u-button>
+                </u-linear-layout>
+            </template>
+            <template #body :ref="`template11`">
+                <u-linear-layout :ref="`uLinearLayout9`" :gap="`none`" :mode="`flex`" :direction="`vertical`" :justify="`center`" :alignment="`start`">
+                    <u-text :ref="`uText4`" :key="`uText4`" :text="`确定删除所选部门？`" v-if="isDeptDelete"></u-text>
+                    <u-text :ref="`text_277`" :key="`text_277`" :text="`确定移除所选成员？`" v-if="!isDeptDelete" style="--custom-start: auto"></u-text>
+                </u-linear-layout>
+            </template>
+            <template #title :ref="`template12`">
+                <u-text :ref="`text12`" :key="`text12`" :text="`删除`" v-if="isDeptDelete"></u-text>
+                <u-text :ref="`text_288`" :key="`text_288`" :text="`移除`" v-if="!isDeptDelete" style="--custom-start: auto"></u-text>
+            </template>
+        </u-modal>
+        <u-modal :ref="`modal_5`" :size="`normal`" :icon="`warning`" style="--custom-start: auto">
+            <template #foot :ref="`template_117`">
+                <u-linear-layout :ref="`linear_layout_322`" style="text-align: right">
+                    <u-button :ref="`button_14`" :text="`取消`" @click="button_14_click($event)"></u-button>
+                    <u-button :ref="`button_15`" :color="`primary`" :text="`确定`" @click="button_15_click($event)" style="--custom-start: auto"></u-button>
+                </u-linear-layout>
+            </template>
+            <template #body :ref="`template_118`">
+                <u-linear-layout :ref="`linear_layout_323`" :gap="`none`" :mode="`flex`" :direction="`vertical`" :justify="`center`" :alignment="`start`">
+                    <u-text :ref="`text_279`" :text="$utils['ToString']('nasl.core.String', $utils['ToString']('nasl.core.String', `确定移除“`) + $utils['ToString']('nasl.core.String', (currentUser || {}).userName) + $utils['ToString']('nasl.core.String', `”吗？`))"></u-text>
+                </u-linear-layout>
+            </template>
+            <template #title :ref="`template_119`">
+                <u-text :ref="`text_278`" :text="`移除`"></u-text>
+            </template>
+        </u-modal>
+        <u-modal :ref="`modal_6`" style="--custom-start: auto">
+            <template #foot :ref="`template_122`">
+                <u-linear-layout :ref="`linear_layout_333`" :justify="`center`" style="text-align: right">
+                    <u-button :ref="`button_17`" :text="`取 消`" @click="button_17_click($event)"></u-button>
+                    <u-button :ref="`button_16`" :color="`primary`" :text="`确 定`" @click="button_16_click($event)" style="--custom-start: auto"></u-button>
+                </u-linear-layout>
+            </template>
+            <template #body :ref="`template_123`">
+                <u-form :ref="`form_4`" key="form_4" style="--custom-start: auto">
+                    <u-form-item :ref="`form_item_8`" :required="true" :layout="`center`">
+                        <template #label :ref="`template_125`">
+                            <u-text :ref="`text_291`" :text="`用户名称`"></u-text>
+                        </template>
+                        <u-text :ref="`text_296`" :text="$utils['ToString']('nasl.core.String', (searchUser || {}).userName)" style="--custom-start: auto"></u-text>
+                    </u-form-item>
+                    <u-form-item :ref="`form_item_11`" :required="true" :layout="`center`" :rules="[{ validate: 'filled', message: `所属部门不得为空`, trigger: 'input+blur', required: true }]" style="--custom-start: auto">
+                        <template #label :ref="`template_129`">
+                            <u-text :ref="`text_295`" :text="`所属部门`"></u-text>
+                        </template>
+                        <u-tree-select-new :ref="`tree_select_new_3`" :placeholder="`请选择`" :value.sync="searchDeptId" :dataSource="$global.useDatabaseCallback()(__tree_select_new_3_handleDataSourceLoad)" :textField="`lCAPDepartment.name`" :valueField="`lCAPDepartment.deptId`" :parentField="`lCAPDepartment.parentDeptId`" :clearable="false" :width="`full`" :appendTo="`reference`" :disabled="false" style="--tree-select-new-popper-width: 100%; --custom-start: auto; --tree-view-node-background-active: rgba(51, 126, 255, 0.12); --tree-view-node-background-selected: rgba(51, 126, 255, 0.12); --tree-view-node-color-selected: #337eff; --tree-view-node-expander-color-selected: #999">
+                            <template #item="current" :ref="`template_81`"></template>
+                        </u-tree-select-new>
+                    </u-form-item>
+                </u-form>
+            </template>
+            <template #title :ref="`template_124`">
+                <u-text :ref="`text_290`" :text="`编辑用户`"></u-text>
+            </template>
+        </u-modal>
+    </u-linear-layout>
+</template>
+<script>
+const keyboardEventMixin = {
+    mounted() {
+        document.addEventListener("keydown", this.onKeyDown);
+        document.addEventListener("keyup", this.onKeyUp);
+    },
+    beforeDestroy() {
+        document.removeEventListener("keydown", this.onKeyDown);
+        document.removeEventListener("keyup", this.onKeyUp);
+    },
+    methods: {
+        async onKeyDown(e) {},
+        async onKeyUp(e) {},
+    },
+};
+export default {
+    mixins: [keyboardEventMixin],
+    data() {
+        return {
+            ["search"]: undefined,
+            ["isUpdateDept"]: undefined,
+            ["inputDept"]: this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPDepartment", undefined),
+            ["updateDeptId"]: undefined,
+            ["selectDept"]: this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPDepartment", undefined),
+            ["rootDeptId"]: undefined,
+            ["userId"]: undefined,
+            ["userIds"]: this.$genInitFromSchema("nasl.collection.List<nasl.core.String>", undefined),
+            ["deleteDeptId"]: undefined,
+            ["deleteParentId"]: undefined,
+            ["inputUser"]: undefined,
+            ["currentUser"]: this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPUser", undefined),
+            ["isCancelLeader"]: undefined,
+            ["batchDeptId"]: undefined,
+            ["isDeptDelete"]: undefined,
+            ["isBatchDept"]: undefined,
+            ["searchDeptList"]: this.$genInitFromSchema("nasl.collection.List<app.dataSources.defaultDS.entities.LCAPDepartment>", undefined),
+            ["searchUserList"]: this.$genInitFromSchema("nasl.collection.List<{lCAPUser: app.dataSources.defaultDS.entities.LCAPUser, lCAPUserDeptMapping: app.dataSources.defaultDS.entities.LCAPUserDeptMapping}>", undefined),
+            ["selectDeptIdTemp"]: undefined,
+            ["searchUser"]: this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPUser", undefined),
+            ["searchDeptId"]: undefined,
+            ["searchOldDeptId"]: undefined,
+            ["iconShow"]: undefined,
+            ["oldParentDeptId"]: undefined,
+        };
+    },
+    computed: {},
+    meta: {
+        title: "部门管理",
+        crumb: undefined,
+        crumbI18n: undefined,
+        first: undefined,
+        auth: "loginAuth",
+    },
+    methods: {
+        async submit() {
+            if ((this.$genInitFromSchema("nasl.ui.ValidateResult", await (this.$refs && this.$refs[`form1`] && this.$refs[`form1`].validate && this.$refs[`form1`].validate(undefined, undefined))) || {}).valid) {
+                if (await this.judgeDeptIdRepeated()) {
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `重复的部门标识！`));
+                } else {
+                    if (this.isUpdateDept == 1) {
+                        await this.$logics["app.logics.LCAPUpdateDepartment"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "d79b590d66584889a4b8384b68c88f45",
+                            },
+                            path: {},
+                            body: {
+                                department: this.inputDept,
+                                oldDeptId: (this.selectDept || {}).deptId,
+                                oldParentDeptId: this.oldParentDeptId,
+                            },
+                        });
+                        await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `编辑成功`));
+                    } else {
+                        await this.$logics["app.logics.LCAPCreateDepartment"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "2236bed3f519402ab283454a16cd9c48",
+                            },
+                            path: {},
+                            body: {
+                                department: this.inputDept,
+                            },
+                        });
+                        await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `添加成功`));
+                    }
+
+                    if ((this.selectDept || {}).deptId == this.rootDeptId && this.isUpdateDept == 1) {
+                        await this.init();
+                    } else {
+                    }
+
+                    this.selectDept.deptId = (this.inputDept || {}).deptId;
+                    this.selectDept.name = (this.inputDept || {}).name;
+
+                    this.selectDeptIdTemp = (this.inputDept || {}).deptId;
+                    if (this.isUpdateDept == 0 && (this.rootDeptId == undefined || this.rootDeptId == ``)) {
+                        await this.init();
+                    } else {
+                    }
+
+                    await (this.$refs && this.$refs[`createORUpdateDeptPopup`] && this.$refs[`createORUpdateDeptPopup`].close && this.$refs[`createORUpdateDeptPopup`].close());
+                    await (this.$refs && this.$refs[`tree_view_new_1`] && this.$refs[`tree_view_new_1`].reload && this.$refs[`tree_view_new_1`].reload());
+                    await this.userReload();
+                }
+            } else {
+            }
+
+            return;
+        },
+        async judgeDeptIdRepeated() {
+            let result = undefined;
+
+            result = await this.$logics["app.logics.LCAPJudgeDeptIdRepeated"]({
+                config: {
+                    download: false,
+                },
+                query: {},
+                headers: {
+                    "lcap-calllogic-uuid": "e54c6080901641ebbf33e508293ecdd3",
+                },
+                path: {},
+                body: {
+                    deptId: (this.inputDept || {}).deptId,
+                },
+            });
+            if ((this.inputDept || {}).deptId == this.updateDeptId && this.isUpdateDept == 1) {
+                result = false;
+            } else {
+            }
+
+            return result;
+        },
+        async init() {
+            let deptList = this.$genInitFromSchema("nasl.collection.List<{lCAPDepartment: app.dataSources.defaultDS.entities.LCAPDepartment}>", undefined);
+
+            deptList = this.$genInitFromSchema(
+                "nasl.collection.List<{lCAPDepartment: app.dataSources.defaultDS.entities.LCAPDepartment}>",
+                await this.$logics["app.logics.LCAPGetDeptList"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "dc41aa29fa1f4a5e9008a31733371994",
+                    },
+                    path: {},
+                    body: {},
+                })
+            );
+            if (this.$utils["HasValue"]({ type: "nasl.collection.List<{lCAPDepartment: app.dataSources.defaultDS.entities.LCAPDepartment}>", value: deptList })) {
+                this.selectDept = (this.$genInitFromSchema("{lCAPDepartment: app.dataSources.defaultDS.entities.LCAPDepartment}", this.$utils["ListHead"](deptList)) || {}).lCAPDepartment;
+                this.rootDeptId = (this.selectDept || {}).deptId;
+                this.selectDeptIdTemp = (this.selectDept || {}).deptId;
+                await this.userReload();
+            } else {
+            }
+
+            return;
+        },
+        async userReload() {
+            this.$genInitFromSchema("nasl.collection.List<nasl.core.String>", this.$utils["Clear"](this.userIds));
+            await (this.$refs && this.$refs[`table_view_1`] && this.$refs[`table_view_1`].reload && this.$refs[`table_view_1`].reload());
+            return;
+        },
+        async searchDeptUser() {
+            if (this.$utils["HasValue"]({ type: "nasl.core.String", value: this.search })) {
+                this.searchDeptList = (
+                    this.$genInitFromSchema(
+                        "{list: nasl.collection.List<app.dataSources.defaultDS.entities.LCAPDepartment>, total: nasl.core.Long}",
+                        await this.$logics["app.logics.LCAPSearchDepts"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "11b57f989a0c433d9961b26c24cd1141",
+                            },
+                            path: {},
+                            body: {
+                                name: this.search,
+                            },
+                        })
+                    ) || {}
+                ).list;
+                this.searchUserList = (
+                    this.$genInitFromSchema(
+                        "{list: nasl.collection.List<{lCAPUser: app.dataSources.defaultDS.entities.LCAPUser, lCAPUserDeptMapping: app.dataSources.defaultDS.entities.LCAPUserDeptMapping}>, total: nasl.core.Long}",
+                        await this.$logics["app.logics.LCAPSearchDeptUsers"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "b12d7f82e25a41eeb8deb7870745d69a",
+                            },
+                            path: {},
+                            body: {
+                                name: this.search,
+                            },
+                        })
+                    ) || {}
+                ).list;
+            } else {
+                this.$genInitFromSchema("nasl.collection.List<app.dataSources.defaultDS.entities.LCAPDepartment>", this.$utils["Clear"](this.searchDeptList));
+                this.$genInitFromSchema("nasl.collection.List<{lCAPUser: app.dataSources.defaultDS.entities.LCAPUser, lCAPUserDeptMapping: app.dataSources.defaultDS.entities.LCAPUserDeptMapping}>", this.$utils["Clear"](this.searchUserList));
+            }
+
+            return;
+        },
+        async departmentManagement_created(event) {
+            await (async () => {
+                await this.init();
+                return;
+            })();
+        },
+        async uButton7_click(event) {
+            await (async () => {
+                await (this.$refs && this.$refs[`createORUpdateDeptPopup`] && this.$refs[`createORUpdateDeptPopup`].close && this.$refs[`createORUpdateDeptPopup`].close());
+                return;
+            })();
+        },
+        async uButton4_click(event) {
+            await (async () => {
+                await this.submit();
+                return;
+            })();
+        },
+        async button_3_click(event) {
+            await (async () => {
+                await (this.$refs && this.$refs[`modal_1`] && this.$refs[`modal_1`].close && this.$refs[`modal_1`].close());
+                return;
+            })();
+        },
+        async button_2_click(event) {
+            await (async () => {
+                if ((this.$genInitFromSchema("nasl.ui.ValidateResult", await (this.$refs && this.$refs[`form_1`] && this.$refs[`form_1`].validate && this.$refs[`form_1`].validate(undefined, undefined))) || {}).valid) {
+                    await this.$logics["app.logics.LCAPSetDeptLeader"]({
+                        config: {
+                            download: false,
+                        },
+                        query: {},
+                        headers: {
+                            "lcap-calllogic-uuid": "a24f1f27de8346eba954087fba200853",
+                        },
+                        path: {},
+                        body: {
+                            deptId: (this.selectDept || {}).deptId,
+                            userId: this.userId,
+                        },
+                    });
+                    await (this.$refs && this.$refs[`modal_1`] && this.$refs[`modal_1`].close && this.$refs[`modal_1`].close());
+                    await this.userReload();
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `已设为主管`));
+                } else {
+                }
+
+                return;
+            })();
+        },
+        async button_7_click(event) {
+            await (async () => {
+                await (this.$refs && this.$refs[`modal_2`] && this.$refs[`modal_2`].close && this.$refs[`modal_2`].close());
+                return;
+            })();
+        },
+        async button_6_click(event) {
+            await (async () => {
+                let addList = this.$genInitFromSchema("nasl.collection.List<nasl.core.String>", undefined);
+
+                if ((this.$genInitFromSchema("nasl.ui.ValidateResult", await (this.$refs && this.$refs[`form_2`] && this.$refs[`form_2`].validate && this.$refs[`form_2`].validate(undefined, undefined))) || {}).valid) {
+                    addList = this.$genInitFromSchema("nasl.collection.List<nasl.core.String>", await JSON.parse(this.inputUser));
+                    await this.$logics["app.logics.LCAPBatchAddDeptUser"]({
+                        config: {
+                            download: false,
+                        },
+                        query: {},
+                        headers: {
+                            "lcap-calllogic-uuid": "f4b74d8142314883b71670ba8b657775",
+                        },
+                        path: {},
+                        body: {
+                            userIds: addList,
+                            deptId: (this.selectDept || {}).deptId,
+                        },
+                    });
+                    await (this.$refs && this.$refs[`modal_2`] && this.$refs[`modal_2`].close && this.$refs[`modal_2`].close());
+                    await this.userReload();
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `添加成功`));
+                } else {
+                }
+
+                return;
+            })();
+        },
+        async button_10_click(event) {
+            await (async () => {
+                await (this.$refs && this.$refs[`modal_3`] && this.$refs[`modal_3`].close && this.$refs[`modal_3`].close());
+                return;
+            })();
+        },
+        async button_9_click(event) {
+            await (async () => {
+                if (this.isCancelLeader) {
+                    await this.$logics["app.logics.LCAPCanceDeptLeader"]({
+                        config: {
+                            download: false,
+                        },
+                        query: {},
+                        headers: {
+                            "lcap-calllogic-uuid": "e931731d1fca4d769613caddb8c20cd6",
+                        },
+                        path: {},
+                        body: {
+                            deptId: (this.selectDept || {}).deptId,
+                            userId: (this.currentUser || {}).userId,
+                        },
+                    });
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `已取消主管`));
+                } else {
+                    await this.$logics["app.logics.LCAPSetDeptLeader"]({
+                        config: {
+                            download: false,
+                        },
+                        query: {},
+                        headers: {
+                            "lcap-calllogic-uuid": "ba6e8520be7f4affb7c0e7281cbd2abe",
+                        },
+                        path: {},
+                        body: {
+                            deptId: (this.selectDept || {}).deptId,
+                            userId: (this.currentUser || {}).userId,
+                        },
+                    });
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `已设为主管`));
+                }
+
+                await (this.$refs && this.$refs[`modal_3`] && this.$refs[`modal_3`].close && this.$refs[`modal_3`].close());
+                await this.userReload();
+                return;
+            })();
+        },
+        async button_12_click(event) {
+            await (async () => {
+                await (this.$refs && this.$refs[`modal_4`] && this.$refs[`modal_4`].close && this.$refs[`modal_4`].close());
+                return;
+            })();
+        },
+        async button_11_click(event) {
+            await (async () => {
+                let msg = undefined;
+
+                if ((this.$genInitFromSchema("nasl.ui.ValidateResult", await (this.$refs && this.$refs[`form_3`] && this.$refs[`form_3`].validate && this.$refs[`form_3`].validate(undefined, undefined))) || {}).valid) {
+                    if (this.isBatchDept) {
+                        msg = await this.$logics["app.logics.LCAPBatchUpdateDeptUser"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "1e0f97405b1047a2b2a3e16ef5e6bd72",
+                            },
+                            path: {},
+                            body: {
+                                userIds: this.userIds,
+                                deptId: this.batchDeptId,
+                                oldDeptId: (this.selectDept || {}).deptId,
+                            },
+                        });
+                    } else {
+                        msg = await this.$logics["app.logics.LCAPBatchUpdateDeptUser"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "fed1e78315df4b218268d3a9eddc612a",
+                            },
+                            path: {},
+                            body: {
+                                userIds: await (async () => {
+                                    const arr = [(this.currentUser || {}).userId];
+                                    return arr;
+                                })(),
+                                deptId: this.batchDeptId,
+                                oldDeptId: (this.selectDept || {}).deptId,
+                            },
+                        });
+                    }
+
+                    await (this.$refs && this.$refs[`modal_4`] && this.$refs[`modal_4`].close && this.$refs[`modal_4`].close());
+                    await this.userReload();
+                    if (this.$utils["HasValue"]({ type: "nasl.core.String", value: msg })) {
+                        await this.$toast.show(this.$utils["ToString"]("nasl.core.String", this.$utils["ToString"]("nasl.core.String", msg)));
+                    } else {
+                        await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `调整成功`));
+                    }
+                } else {
+                }
+
+                return;
+            })();
+        },
+        async uButton10_click(event) {
+            await (async () => {
+                await (this.$refs && this.$refs[`deleteDeptPopup`] && this.$refs[`deleteDeptPopup`].close && this.$refs[`deleteDeptPopup`].close());
+                return;
+            })();
+        },
+        async uButton9_click(event) {
+            await (async () => {
+                let msg = undefined;
+
+                if (this.isDeptDelete) {
+                    msg = await this.$logics["app.logics.LCAPBatchDeleteDepartment"]({
+                        config: {
+                            download: false,
+                        },
+                        query: {},
+                        headers: {
+                            "lcap-calllogic-uuid": "350a610f74164765a7b7028b38ebd637",
+                        },
+                        path: {},
+                        body: {
+                            ids: await (async () => {
+                                const arr = [this.deleteDeptId];
+                                return arr;
+                            })(),
+                        },
+                    });
+                    if (msg == `200`) {
+                        this.selectDept = this.$genInitFromSchema(
+                            "app.dataSources.defaultDS.entities.LCAPDepartment",
+                            await this.$logics["app.logics.LCAPGetDept"]({
+                                config: {
+                                    download: false,
+                                },
+                                query: {},
+                                headers: {
+                                    "lcap-calllogic-uuid": "8a10a4d3f43f4ef1bd909186c18ace22",
+                                },
+                                path: {},
+                                body: {
+                                    deptId: this.deleteParentId,
+                                },
+                            })
+                        );
+                        this.selectDeptIdTemp = (this.selectDept || {}).deptId;
+                        await (this.$refs && this.$refs[`deleteDeptPopup`] && this.$refs[`deleteDeptPopup`].close && this.$refs[`deleteDeptPopup`].close());
+                        await (this.$refs && this.$refs[`tree_view_new_1`] && this.$refs[`tree_view_new_1`].reload && this.$refs[`tree_view_new_1`].reload());
+                        await this.userReload();
+                        await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `删除成功`));
+                    } else {
+                        await this.$toast.show(this.$utils["ToString"]("nasl.core.String", msg));
+                    }
+                } else {
+                    msg = await this.$logics["app.logics.LCAPBatchRemoveDeptUser"]({
+                        config: {
+                            download: false,
+                        },
+                        query: {},
+                        headers: {
+                            "lcap-calllogic-uuid": "206f9f19700848e1828f2f81477adb26",
+                        },
+                        path: {},
+                        body: {
+                            userIds: this.userIds,
+                            deptId: (this.selectDept || {}).deptId,
+                        },
+                    });
+                    await (this.$refs && this.$refs[`deleteDeptPopup`] && this.$refs[`deleteDeptPopup`].close && this.$refs[`deleteDeptPopup`].close());
+                    await this.userReload();
+                    if (this.$utils["HasValue"]({ type: "nasl.core.String", value: msg })) {
+                        await this.$toast.show(this.$utils["ToString"]("nasl.core.String", msg));
+                    } else {
+                        await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `移除成功`));
+                    }
+                }
+
+                return;
+            })();
+        },
+        async button_14_click(event) {
+            await (async () => {
+                await (this.$refs && this.$refs[`modal_5`] && this.$refs[`modal_5`].close && this.$refs[`modal_5`].close());
+                return;
+            })();
+        },
+        async button_15_click(event) {
+            await (async () => {
+                let msg = undefined;
+
+                msg = await this.$logics["app.logics.LCAPBatchRemoveDeptUser"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "9b23eaff87b24970b2565fad940e2c14",
+                    },
+                    path: {},
+                    body: {
+                        userIds: await (async () => {
+                            const arr = [(this.currentUser || {}).userId];
+                            return arr;
+                        })(),
+                        deptId: (this.selectDept || {}).deptId,
+                    },
+                });
+                if (this.$utils["HasValue"]({ type: "nasl.core.String", value: msg })) {
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", this.$utils["ToString"]("nasl.core.String", msg)));
+                } else {
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `移除成功`));
+                }
+
+                await (this.$refs && this.$refs[`modal_5`] && this.$refs[`modal_5`].close && this.$refs[`modal_5`].close());
+                await this.userReload();
+                return;
+            })();
+        },
+        async button_17_click(event) {
+            await (async () => {
+                await (this.$refs && this.$refs[`modal_6`] && this.$refs[`modal_6`].close && this.$refs[`modal_6`].close());
+                return;
+            })();
+        },
+        async button_16_click(event) {
+            await (async () => {
+                if ((this.$genInitFromSchema("nasl.ui.ValidateResult", await (this.$refs && this.$refs[`form_4`] && this.$refs[`form_4`].validate && this.$refs[`form_4`].validate(undefined, undefined))) || {}).valid) {
+                    if (this.searchDeptId == this.searchOldDeptId) {
+                    } else {
+                        await this.$logics["app.logics.LCAPBatchUpdateDeptUser"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "ca1bb9bc727548dcb114f4dc40153897",
+                            },
+                            path: {},
+                            body: {
+                                userIds: await (async () => {
+                                    const arr = [(this.searchUser || {}).userId];
+                                    return arr;
+                                })(),
+                                deptId: this.searchDeptId,
+                                oldDeptId: this.searchOldDeptId,
+                            },
+                        });
+                    }
+
+                    await this.searchDeptUser();
+                    await this.userReload();
+                    await (this.$refs && this.$refs[`modal_6`] && this.$refs[`modal_6`].close && this.$refs[`modal_6`].close());
+                } else {
+                }
+
+                return;
+            })();
+        },
+        async button_4_click(event) {
+            await (async () => {
+                this.inputUser = `[]`;
+                await (this.$refs && this.$refs[`modal_2`] && this.$refs[`modal_2`].open && this.$refs[`modal_2`].open());
+                return;
+            })();
+        },
+        async button_1_click(event) {
+            await (async () => {
+                this.isUpdateDept = 0;
+                this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPDepartment", this.$utils["Clear"](this.inputDept));
+                this.inputDept.parentDeptId = this.rootDeptId;
+                await (this.$refs && this.$refs[`createORUpdateDeptPopup`] && this.$refs[`createORUpdateDeptPopup`].open && this.$refs[`createORUpdateDeptPopup`].open());
+                return;
+            })();
+        },
+        async input_2_input(event) {
+            await (async () => {
+                await console.log(this.$utils["ToString"]("nasl.core.String", `搜索~`));
+                await this.searchDeptUser();
+                return;
+            })();
+        },
+        async tree_view_new_1_select(event) {
+            await (async () => {
+                if (this.selectDeptIdTemp == (this.selectDept || {}).deptId) {
+                } else {
+                    this.selectDept = this.$genInitFromSchema(
+                        "app.dataSources.defaultDS.entities.LCAPDepartment",
+                        await this.$logics["app.logics.LCAPGetDept"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "b0582fe7ee6246dc890c02615cf73a5d",
+                            },
+                            path: {},
+                            body: {
+                                deptId: (this.selectDept || {}).deptId,
+                            },
+                        })
+                    );
+                    await this.userReload();
+                }
+
+                this.selectDeptIdTemp = (this.selectDept || {}).deptId;
+                return;
+            })();
+        },
+        async dropdown_item_5_click(event) {
+            await (async () => {
+                if (this.$utils["HasValue"]({ type: "nasl.collection.List<nasl.core.String>", value: this.userIds })) {
+                    this.isBatchDept = true;
+                    this.batchDeptId = (this.selectDept || {}).deptId;
+                    await (this.$refs && this.$refs[`modal_4`] && this.$refs[`modal_4`].open && this.$refs[`modal_4`].open());
+                } else {
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `请先选择部门成员`));
+                }
+
+                return;
+            })();
+        },
+        async dropdown_item_6_click(event) {
+            await (async () => {
+                if (this.$utils["HasValue"]({ type: "nasl.collection.List<nasl.core.String>", value: this.userIds })) {
+                    this.isDeptDelete = false;
+                    await (this.$refs && this.$refs[`deleteDeptPopup`] && this.$refs[`deleteDeptPopup`].open && this.$refs[`deleteDeptPopup`].open());
+                } else {
+                    await this.$toast.show(this.$utils["ToString"]("nasl.core.String", `请先选择部门成员`));
+                }
+
+                return;
+            })();
+        },
+        async linear_layout_306_mouseenter(event, current) {
+            await (async () => {
+                this.iconShow = (((current || {}).item || {}).lCAPDepartment || {}).deptId;
+                return;
+            })();
+        },
+        async linear_layout_306_mouseleave(event, current) {
+            await (async () => {
+                this.iconShow = undefined;
+                return;
+            })();
+        },
+        async linear_layout_328_click(event, current) {
+            await (async () => {
+                this.selectDept = this.$genInitFromSchema(
+                    "app.dataSources.defaultDS.entities.LCAPDepartment",
+                    await this.$logics["app.logics.LCAPGetDept"]({
+                        config: {
+                            download: false,
+                        },
+                        query: {},
+                        headers: {
+                            "lcap-calllogic-uuid": "68eae7addc0b4061a92f64bd2a17e613",
+                        },
+                        path: {},
+                        body: {
+                            deptId: ((current || {}).item || {}).deptId,
+                        },
+                    })
+                );
+                await this.userReload();
+                return;
+            })();
+        },
+        async linear_layout_331_click(event, current) {
+            await (async () => {
+                this.searchUser = ((current || {}).item || {}).lCAPUser;
+                this.searchDeptId = (((current || {}).item || {}).lCAPUserDeptMapping || {}).deptId;
+                this.searchOldDeptId = (((current || {}).item || {}).lCAPUserDeptMapping || {}).deptId;
+                await (this.$refs && this.$refs[`modal_6`] && this.$refs[`modal_6`].open && this.$refs[`modal_6`].open());
+                return;
+            })();
+        },
+        async link_18_click(event, current) {
+            await (async () => {
+                this.isCancelLeader = false;
+                this.currentUser = this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPUser", this.$utils["Clone"](((current || {}).item || {}).lCAPUser));
+                await (this.$refs && this.$refs[`modal_3`] && this.$refs[`modal_3`].open && this.$refs[`modal_3`].open());
+                return;
+            })();
+        },
+        async link_19_click(event, current) {
+            await (async () => {
+                this.isCancelLeader = true;
+                this.currentUser = this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPUser", this.$utils["Clone"](((current || {}).item || {}).lCAPUser));
+                await (this.$refs && this.$refs[`modal_3`] && this.$refs[`modal_3`].open && this.$refs[`modal_3`].open());
+                return;
+            })();
+        },
+        async link_20_click(event, current) {
+            await (async () => {
+                this.isBatchDept = false;
+                this.currentUser = this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPUser", this.$utils["Clone"](((current || {}).item || {}).lCAPUser));
+                this.batchDeptId = (this.selectDept || {}).deptId;
+                await (this.$refs && this.$refs[`modal_4`] && this.$refs[`modal_4`].open && this.$refs[`modal_4`].open());
+                return;
+            })();
+        },
+        async link_21_click(event, current) {
+            await (async () => {
+                this.currentUser = this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPUser", this.$utils["Clone"](((current || {}).item || {}).lCAPUser));
+                await (this.$refs && this.$refs[`modal_5`] && this.$refs[`modal_5`].open && this.$refs[`modal_5`].open());
+                return;
+            })();
+        },
+        async link_8_click(event, current) {
+            await (async () => {
+                this.isUpdateDept = 1;
+                this.updateDeptId = (((current || {}).item || {}).lCAPDepartment || {}).deptId;
+                this.oldParentDeptId = (((current || {}).item || {}).lCAPDepartment || {}).parentDeptId;
+                this.inputDept = this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPDepartment", this.$utils["Clone"](((current || {}).item || {}).lCAPDepartment));
+                await (this.$refs && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`] && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`].close && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`].close());
+                await (this.$refs && this.$refs[`createORUpdateDeptPopup`] && this.$refs[`createORUpdateDeptPopup`].open && this.$refs[`createORUpdateDeptPopup`].open());
+                return;
+            })();
+        },
+        async link_11_click(event, current) {
+            await (async () => {
+                this.isUpdateDept = 2;
+                this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPDepartment", this.$utils["Clear"](this.inputDept));
+                this.inputDept.parentDeptId = (((current || {}).item || {}).lCAPDepartment || {}).deptId;
+                await (this.$refs && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`] && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`].close && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`].close());
+                await (this.$refs && this.$refs[`createORUpdateDeptPopup`] && this.$refs[`createORUpdateDeptPopup`].open && this.$refs[`createORUpdateDeptPopup`].open());
+                return;
+            })();
+        },
+        async link_10_click(event, current) {
+            await (async () => {
+                this.userId = undefined;
+                await (this.$refs && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`] && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`].close && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`].close());
+                await (this.$refs && this.$refs[`modal_1`] && this.$refs[`modal_1`].open && this.$refs[`modal_1`].open());
+                return;
+            })();
+        },
+        async link_9_click(event, current) {
+            await (async () => {
+                let childList = this.$genInitFromSchema("nasl.collection.List<app.dataSources.defaultDS.entities.LCAPDepartment>", undefined);
+
+                this.isDeptDelete = true;
+                this.deleteDeptId = (((current || {}).item || {}).lCAPDepartment || {}).id;
+                childList = (
+                    this.$genInitFromSchema(
+                        "{list: nasl.collection.List<app.dataSources.defaultDS.entities.LCAPDepartment>, total: nasl.core.Long}",
+                        await this.$logics["app.logics.LCAPGetChildDepts"]({
+                            config: {
+                                download: false,
+                            },
+                            query: {},
+                            headers: {
+                                "lcap-calllogic-uuid": "d29013bc8a334330ba178327dc9d3f16",
+                            },
+                            path: {},
+                            body: {
+                                deptId: (((current || {}).item || {}).lCAPDepartment || {}).parentDeptId,
+                            },
+                        })
+                    ) || {}
+                ).list;
+                if ((childList || {}).length > 1) {
+                    this.deleteParentId = (this.$genInitFromSchema("app.dataSources.defaultDS.entities.LCAPDepartment", this.$utils["ListHead"](childList)) || {}).deptId;
+                } else {
+                    this.deleteParentId = (((current || {}).item || {}).lCAPDepartment || {}).parentDeptId;
+                }
+
+                await (this.$refs && this.$refs[`deleteDeptPopup`] && this.$refs[`deleteDeptPopup`].open && this.$refs[`deleteDeptPopup`].open());
+                await (this.$refs && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`] && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`].close && this.$refs[`popup_combination_1_${(current || {}).__nodeKey || (current || {}).index}`].close());
+                return;
+            })();
+        },
+        genuText5_bindAttrs_text_expression_viewMatchExpression() {
+            return (() => {
+                if (this.$global.isEqual(this.isCancelLeader, true)) {
+                    return this.$utils["ToString"]("nasl.core.String", `确定取消“`) + this.$utils["ToString"]("nasl.core.String", (this.currentUser || {}).userName) + this.$utils["ToString"]("nasl.core.String", `”的部门主管吗？`);
+                } else if (this.$global.isEqual(this.isCancelLeader, false)) {
+                    return this.$utils["ToString"]("nasl.core.String", `确定将“`) + this.$utils["ToString"]("nasl.core.String", (this.currentUser || {}).userName) + this.$utils["ToString"]("nasl.core.String", `”设为部门主管吗？`);
+                } else {
+                }
+            })();
+        },
+
+        async __tree_view_new_1_handleDataSourceLoad(params) {
+            this["__tree_view_new_1_params"] = { ...params };
+            return this.$genInitFromSchema(
+                "nasl.collection.List<{lCAPDepartment: app.dataSources.defaultDS.entities.LCAPDepartment}>",
+                await this.$logics["app.logics.LCAPGetDeptList"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "b166086ad969447dba56159632d9e3f3",
+                    },
+                    path: {},
+                    body: {},
+                })
+            );
+        },
+
+        async __table_view_1_handleDataSourceLoad(params) {
+            this["__table_view_1_params"] = { ...params };
+            return this.$genInitFromSchema(
+                "{list: nasl.collection.List<{lCAPUser: app.dataSources.defaultDS.entities.LCAPUser, lCAPUserDeptMapping: app.dataSources.defaultDS.entities.LCAPUserDeptMapping}>, total: nasl.core.Long}",
+                await this.$logics["app.logics.LCAPGetDeptUsers"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "3ef2923042044677a425308ca949f6bc",
+                    },
+                    path: {},
+                    body: {
+                        deptId: (this.selectDept || {}).deptId,
+                        page: this.__table_view_1_params && this.__table_view_1_params.page,
+                        size: this.__table_view_1_params && this.__table_view_1_params.size,
+                    },
+                })
+            );
+        },
+
+        async __tree_select_new_1_handleDataSourceLoad(params) {
+            this["__tree_select_new_1_params"] = { ...params };
+            return this.$genInitFromSchema(
+                "nasl.collection.List<{lCAPDepartment: app.dataSources.defaultDS.entities.LCAPDepartment}>",
+                await this.$logics["app.logics.LCAPGetDeptList"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "0f330087e1d145b088cbeb506e534d76",
+                    },
+                    path: {},
+                    body: {},
+                })
+            );
+        },
+
+        async __select_1_handleDataSourceLoad(params) {
+            this["__select_1_params"] = { ...params };
+            return this.$genInitFromSchema(
+                "{list: nasl.collection.List<{lCAPUser: app.dataSources.defaultDS.entities.LCAPUser, lCAPUserDeptMapping: app.dataSources.defaultDS.entities.LCAPUserDeptMapping}>, total: nasl.core.Long}",
+                await this.$logics["app.logics.LCAPLoadDeptSetLeaderSelect"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "b4bcf6752f594ebd9cc29864ec3ab508",
+                    },
+                    path: {},
+                    body: {
+                        page: this.__select_1_params && this.__select_1_params.page,
+                        size: this.__select_1_params && this.__select_1_params.size,
+                        deptId: (this.selectDept || {}).deptId,
+                        filter: this.__select_1_params && this.__select_1_params.filterText,
+                    },
+                })
+            );
+        },
+
+        async __select_2_handleDataSourceLoad(params) {
+            this["__select_2_params"] = { ...params };
+            return this.$genInitFromSchema(
+                "{list: nasl.collection.List<{lCAPUser: app.dataSources.defaultDS.entities.LCAPUser}>, total: nasl.core.Long}",
+                await this.$logics["app.logics.LCAPLoadDeptAddUserSelect"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "bd4737d154a24ec5afbb3c55efcf030d",
+                    },
+                    path: {},
+                    body: {
+                        page: this.__select_2_params && this.__select_2_params.page,
+                        size: this.__select_2_params && this.__select_2_params.size,
+                        deptId: (this.selectDept || {}).deptId,
+                        search: this.__select_2_params && this.__select_2_params.filterText,
+                    },
+                })
+            );
+        },
+
+        async __tree_select_new_2_handleDataSourceLoad(params) {
+            this["__tree_select_new_2_params"] = { ...params };
+            return this.$genInitFromSchema(
+                "nasl.collection.List<{lCAPDepartment: app.dataSources.defaultDS.entities.LCAPDepartment}>",
+                await this.$logics["app.logics.LCAPGetDeptList"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "eb7465e9-df48-4b68-b5cb-79a3c27ee303",
+                    },
+                    path: {},
+                    body: {},
+                })
+            );
+        },
+
+        async __tree_select_new_3_handleDataSourceLoad(params) {
+            this["__tree_select_new_3_params"] = { ...params };
+            return this.$genInitFromSchema(
+                "nasl.collection.List<{lCAPDepartment: app.dataSources.defaultDS.entities.LCAPDepartment}>",
+                await this.$logics["app.logics.LCAPGetDeptList"]({
+                    config: {
+                        download: false,
+                    },
+                    query: {},
+                    headers: {
+                        "lcap-calllogic-uuid": "b68dad5d-0009-4c8a-9e1d-44a933a9eb19",
+                    },
+                    path: {},
+                    body: {},
+                })
+            );
+        },
+    },
+    async created() {
+        await this.departmentManagement_created();
+    },
+};
+</script>

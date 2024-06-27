@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated CoffeeEntity Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.entities.CoffeeEntityMapper">
+    <resultMap id="BaseResultMap" type="com.jystudy.coffee0528.domain.entities.CoffeeEntity">
+        <id column="id" jdbcType="BIGINT" property="id" />
+        <result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+        <result column="updated_time" jdbcType="TIMESTAMP" property="updatedTime" />
+        <result column="created_by" jdbcType="VARCHAR" property="createdBy" />
+        <result column="updated_by" jdbcType="VARCHAR" property="updatedBy" />
+        <result column="coffeename" jdbcType="VARCHAR" property="coffeename" />
+        <result column="description" jdbcType="VARCHAR" property="description" />
+        <result column="price" jdbcType="DECIMAL" property="price" />
+        <result column="coffee_image" jdbcType="VARCHAR" property="coffeeImage" />
+        <result column="coffee_category" jdbcType="BIGINT" property="coffeeCategory" />
+        <result column="is_display" jdbcType="TINYINT" property="isDisplay" />
+    </resultMap>
+
+    <!--
+       ###################################################
+       ######### mysql
+       ###################################################
+     -->
+    <insert id="insert" parameterType="com.jystudy.coffee0528.domain.entities.CoffeeEntity"  >
+        INSERT INTO `coffee` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`coffeename`
+            ,`description`
+            ,`price`
+            ,`coffee_image`
+            ,`coffee_category`
+            ,`is_display`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{coffeename,jdbcType=VARCHAR}
+            ,#{description,jdbcType=VARCHAR}
+            ,#{price,jdbcType=DECIMAL}
+            ,#{coffeeImage,jdbcType=VARCHAR}
+            ,#{coffeeCategory,jdbcType=BIGINT}
+            ,#{isDisplay,jdbcType=TINYINT}
+        )
+    </insert>
+
+    <insert id="batchInsert"  parameterType="java.util.List" >
+        INSERT INTO `coffee` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`coffeename`
+            ,`description`
+            ,`price`
+            ,`coffee_image`
+            ,`coffee_category`
+            ,`is_display`
+        )
+        VALUES
+        <foreach collection="list" item="item" index="index" separator=",">
+        (
+            #{item.id,jdbcType=BIGINT}
+            ,#{item.createdTime,jdbcType=TIMESTAMP}
+            ,#{item.updatedTime,jdbcType=TIMESTAMP}
+            ,#{item.createdBy,jdbcType=VARCHAR}
+            ,#{item.updatedBy,jdbcType=VARCHAR}
+            ,#{item.coffeename,jdbcType=VARCHAR}
+            ,#{item.description,jdbcType=VARCHAR}
+            ,#{item.price,jdbcType=DECIMAL}
+            ,#{item.coffeeImage,jdbcType=VARCHAR}
+            ,#{item.coffeeCategory,jdbcType=BIGINT}
+            ,#{item.isDisplay,jdbcType=TINYINT}
+         )
+        </foreach>
+    </insert>
+
+    <update id="update" parameterType="com.jystudy.coffee0528.domain.entities.CoffeeEntity" >
+        UPDATE `coffee`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('coffeename')">`coffeename` = #{bean.coffeename, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('description')">`description` = #{bean.description, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('price')">`price` = #{bean.price, jdbcType= DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('coffeeImage')">`coffee_image` = #{bean.coffeeImage, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('coffeeCategory')">`coffee_category` = #{bean.coffeeCategory, jdbcType= BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('isDisplay')">`is_display` = #{bean.isDisplay, jdbcType= TINYINT},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+    <!-- todo -->
+    <update id="batchUpdate" parameterType="com.jystudy.coffee0528.domain.entities.CoffeeEntity" >
+        UPDATE `coffee`
+        <set>
+            <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+            <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('coffeename')">`coffeename` = #{bean.coffeename, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('description')">`description` = #{bean.description, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('price')">`price` = #{bean.price, jdbcType= DECIMAL},</if>
+            <if test="updateFields == null or updateFields.contains('coffeeImage')">`coffee_image` = #{bean.coffeeImage, jdbcType= VARCHAR},</if>
+            <if test="updateFields == null or updateFields.contains('coffeeCategory')">`coffee_category` = #{bean.coffeeCategory, jdbcType= BIGINT},</if>
+            <if test="updateFields == null or updateFields.contains('isDisplay')">`is_display` = #{bean.isDisplay, jdbcType= TINYINT},</if>
+        </set>
+        where `id` = #{bean.id}
+    </update>
+
+
+    <delete id="delete" parameterType="java.lang.Long" >
+        DELETE FROM `coffee` where `id` = #{id}
+    </delete>
+
+
+    <delete id="batchDelete" >
+        DELETE FROM `coffee` where `id` in
+        <foreach collection="list" item="pkValueItem" index="index"  separator="," open="(" close=")">
+            #{pkValueItem}
+        </foreach>
+    </delete>
+
+    <delete id="deleteReference">
+        DELETE FROM `coffee`
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'coffeename'">
+                    AND `coffeename` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'description'">
+                    AND `description` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'price'">
+                    AND `price` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'coffeeImage'">
+                    AND `coffee_image` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'coffeeCategory'">
+                    AND `coffee_category` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'isDisplay'">
+                    AND `is_display` = #{value, jdbcType=TINYINT}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+    </delete>
+
+    <select id="existReference" resultType="java.lang.Long" >
+        select `id` from `coffee` 
+        <where>
+            <choose>
+                <when test="property == 'id'">
+                    AND `id` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'createdTime'">
+                    AND `created_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'updatedTime'">
+                    AND `updated_time` = #{value, jdbcType=TIMESTAMP}
+                </when>
+                <when test="property == 'createdBy'">
+                    AND `created_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'updatedBy'">
+                    AND `updated_by` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'coffeename'">
+                    AND `coffeename` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'description'">
+                    AND `description` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'price'">
+                    AND `price` = #{value, jdbcType=DECIMAL}
+                </when>
+                <when test="property == 'coffeeImage'">
+                    AND `coffee_image` = #{value, jdbcType=VARCHAR}
+                </when>
+                <when test="property == 'coffeeCategory'">
+                    AND `coffee_category` = #{value, jdbcType=BIGINT}
+                </when>
+                <when test="property == 'isDisplay'">
+                    AND `is_display` = #{value, jdbcType=TINYINT}
+                </when>
+                <otherwise>
+                    MUST BE ERROR
+                </otherwise>
+            </choose>
+        </where>
+         LIMIT 1
+    </select>
+
+
+    <select id="selectOne" resultMap="BaseResultMap" >
+        select *
+        from `coffee`
+        where `id`=#{id}
+    </select>
+
+    <select id="selectList" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter" resultMap="BaseResultMap" >
+        select *
+        from `coffee`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <select id="count" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter" resultType="java.lang.Integer" >
+        select count(1) from `coffee`
+        <where>
+            ${filter.sql("mysql")}
+        </where>
+    </select>
+
+    <insert id="createOrUpdate" parameterType="com.jystudy.coffee0528.domain.entities.CoffeeEntity">
+        INSERT INTO `coffee` (
+            `id`
+            ,`created_time`
+            ,`updated_time`
+            ,`created_by`
+            ,`updated_by`
+            ,`coffeename`
+            ,`description`
+            ,`price`
+            ,`coffee_image`
+            ,`coffee_category`
+            ,`is_display`
+        )
+        VALUES (
+            #{id,jdbcType=BIGINT}
+            ,#{createdTime,jdbcType=TIMESTAMP}
+            ,#{updatedTime,jdbcType=TIMESTAMP}
+            ,#{createdBy,jdbcType=VARCHAR}
+            ,#{updatedBy,jdbcType=VARCHAR}
+            ,#{coffeename,jdbcType=VARCHAR}
+            ,#{description,jdbcType=VARCHAR}
+            ,#{price,jdbcType=DECIMAL}
+            ,#{coffeeImage,jdbcType=VARCHAR}
+            ,#{coffeeCategory,jdbcType=BIGINT}
+            ,#{isDisplay,jdbcType=TINYINT}
+        )
+    </insert>
+
+
+    <update id="updateBy">
+        UPDATE `coffee`
+        <set>
+        <if test="updateFields == null or updateFields.contains('createdTime')">`created_time` = #{bean.createdTime, jdbcType= TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('updatedTime')">`updated_time` = #{bean.updatedTime, jdbcType= TIMESTAMP},</if>
+        <if test="updateFields == null or updateFields.contains('createdBy')">`created_by` = #{bean.createdBy, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('updatedBy')">`updated_by` = #{bean.updatedBy, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('coffeename')">`coffeename` = #{bean.coffeename, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('description')">`description` = #{bean.description, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('price')">`price` = #{bean.price, jdbcType= DECIMAL},</if>
+        <if test="updateFields == null or updateFields.contains('coffeeImage')">`coffee_image` = #{bean.coffeeImage, jdbcType= VARCHAR},</if>
+        <if test="updateFields == null or updateFields.contains('coffeeCategory')">`coffee_category` = #{bean.coffeeCategory, jdbcType= BIGINT},</if>
+        <if test="updateFields == null or updateFields.contains('isDisplay')">`is_display` = #{bean.isDisplay, jdbcType= TINYINT},</if>
+        </set>
+        where ${filter.sql("mysql")} 
+
+    </update>
+
+    <delete id="deleteBy" parameterType="com.jystudy.coffee0528.service.dto.filters.AbstractQueryFilter">
+        DELETE FROM `coffee`
+        where ${filter.sql("mysql")} 
+    </delete>
+</mapper>

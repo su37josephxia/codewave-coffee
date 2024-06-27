@@ -1,0 +1,37 @@
+{
+    "appConfig": {
+        "project": "coffee0528",
+        "domainName": "coffee0528",
+        "extendedConfig": null,
+        "envConfig": {
+            "lowcodeDomain": "codewave.163.com"
+        },
+        "tenant": "jystudy",
+        "i18nInfo": {
+            "enabled": false,
+            "locale": "zh-CN",
+            "messages": {},
+            "I18nList": []
+        }
+    },
+    "dnsAddr": "https://coffee0528-jystudy.app.codewave.163.com",
+    "tenant": "jystudy",
+    "env": "dev",
+    "hasUserCenter": true,
+    "hasAuth": true,
+    "authResourcePaths": [],
+    "baseResourcePaths": [
+        "/m/login",
+        "/m/user",
+        "/m/index/myOrder",
+        "/m/index/confirmOrder",
+        "/m/index/menu",
+        "/m/index/home",
+        "/m/index",
+        "/m/noAuth",
+        "/m/notFound"
+    ],
+    "basePath": "/m",
+    "sysPrefixPath": "",
+    "frontendName": "m"
+}

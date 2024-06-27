@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPGetEntityDataPermissionsCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPGetEntityDataPermissionsCustomizeServiceMapper">
+
+<select id="getLong" resultType="java.lang.Long">
+SELECT `lcap_role_f803ac`.`id` `id` FROM `lcap_user_role_mapping_f803ac` LEFT JOIN `lcap_role_f803ac` ON `lcap_user_role_mapping_f803ac`.`role_id` = `lcap_role_f803ac`.`id` 
+<if test=" 1==1 and ( global_CDD638E00095E76C42DB80D69DFDEC30_currentUser!=null and global_CDD638E00095E76C42DB80D69DFDEC30_currentUser.userId!=null ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+`lcap_user_role_mapping_f803ac`.`user_id` = #{global_CDD638E00095E76C42DB80D69DFDEC30_currentUser.userId} 
+</trim> 
+</if> GROUP BY `lcap_role_f803ac`.`id`
+</select>
+
+<resultMap id="AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5">
+    <id column="T1_C1" property="lCAPDataPermission.id"/>
+    <result column="T1_C2" property="lCAPDataPermission.createdTime"/>
+    <result column="T1_C3" property="lCAPDataPermission.updatedTime"/>
+    <result column="T1_C4" property="lCAPDataPermission.createdBy"/>
+    <result column="T1_C5" property="lCAPDataPermission.updatedBy"/>
+    <result column="T1_C6" property="lCAPDataPermission.resourceName"/>
+    <result column="T1_C7" property="lCAPDataPermission.resourceType"/>
+    <result column="T1_C8" property="lCAPDataPermission.rowRuleType"/>
+    <result column="T1_C9" property="lCAPDataPermission.relation"/>
+    <result column="T1_C10" property="lCAPDataPermission.roleId"/>
+</resultMap>
+
+<select id="getAnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5" resultMap="AnonymousStructure_B347BE96D1C3E30B743C7EF6D26982A5">
+SELECT `lcap_data_permission_f803ac`.`id` `T1_C1`,`lcap_data_permission_f803ac`.`created_time` `T1_C2`,`lcap_data_permission_f803ac`.`updated_time` `T1_C3`,`lcap_data_permission_f803ac`.`created_by` `T1_C4`,`lcap_data_permission_f803ac`.`updated_by` `T1_C5`,`lcap_data_permission_f803ac`.`resource_name` `T1_C6`,`lcap_data_permission_f803ac`.`resource_type` `T1_C7`,`lcap_data_permission_f803ac`.`row_rule_type` `T1_C8`,`lcap_data_permission_f803ac`.`relation` `T1_C9`,`lcap_data_permission_f803ac`.`role_id` `T1_C10` FROM `lcap_data_permission_f803ac` 
+<if test=" 1==1 or ( entityNames!=null and entityNames.size()>0 ) or ( userRole!=null and userRole.size()>0 ) ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+
+<if test=" 1==1 and ( userRole!=null and userRole.size()>0 ) ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+( `lcap_data_permission_f803ac`.`role_id` IN 
+<foreach item="item" index="index" collection="userRole" open="(" separator="," close=")">
+#{item} 
+</foreach> ) 
+</trim> 
+</if> 
+<if test=" 1==1 or ( entityNames!=null and entityNames.size()>0 ) ">
+
+<trim  prefix="and">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+
+<if test=" 1==1 and ( entityNames!=null and entityNames.size()>0 ) ">
+
+<trim  prefix="(" suffix=")" prefixOverrides="and |or">
+( `lcap_data_permission_f803ac`.`resource_name` IN 
+<foreach item="item" index="index" collection="entityNames" open="(" separator="," close=")">
+#{item} 
+</foreach> ) 
+</trim> 
+</if> 
+<if test=" 1==1 ">
+
+<trim  prefix="and">
+(`lcap_data_permission_f803ac`.`resource_type` = 'entity') 
+</trim> 
+</if> 
+</trim> 
+</trim> 
+</if> 
+</trim> 
+</if>
+</select>
+</mapper>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+  automatically generated LCAPGetEntityMetaByIdCustomizeService Mapper xml
+-->
+<mapper namespace="com.jystudy.coffee0528.repository.LCAPGetEntityMetaByIdCustomizeServiceMapper">
+
+<resultMap id="AnonymousStructure_7E0E3711C8F04CD2E91C507B336679CC" type="com.jystudy.coffee0528.domain.structure.anonymous.AnonymousStructure_7E0E3711C8F04CD2E91C507B336679CC">
+    <id column="T1_C1" property="lCAPEntityMeta.id"/>
+    <result column="T1_C2" property="lCAPEntityMeta.createdTime"/>
+    <result column="T1_C3" property="lCAPEntityMeta.updatedTime"/>
+    <result column="T1_C4" property="lCAPEntityMeta.createdBy"/>
+    <result column="T1_C5" property="lCAPEntityMeta.updatedBy"/>
+    <result column="T1_C6" property="lCAPEntityMeta.entityName"/>
+    <result column="T1_C7" property="lCAPEntityMeta.tableName"/>
+    <result column="T1_C8" property="lCAPEntityMeta.entityDescription"/>
+    <result column="T1_C9" property="lCAPEntityMeta.properties" typeHandler="com.jystudy.coffee0528.repository.handler.ListTypeHandler_2"/>
+</resultMap>
+
+<select id="getAnonymousStructure_7E0E3711C8F04CD2E91C507B336679CC" resultMap="AnonymousStructure_7E0E3711C8F04CD2E91C507B336679CC">
+SELECT `lcap_entity_meta_f803ac`.`id` `T1_C1`,`lcap_entity_meta_f803ac`.`created_time` `T1_C2`,`lcap_entity_meta_f803ac`.`updated_time` `T1_C3`,`lcap_entity_meta_f803ac`.`created_by` `T1_C4`,`lcap_entity_meta_f803ac`.`updated_by` `T1_C5`,`lcap_entity_meta_f803ac`.`entity_name` `T1_C6`,`lcap_entity_meta_f803ac`.`table_name` `T1_C7`,`lcap_entity_meta_f803ac`.`entity_description` `T1_C8`,`lcap_entity_meta_f803ac`.`properties` `T1_C9` FROM `lcap_entity_meta_f803ac` 
+<if test=" 1==1 and id!=null ">
+
+<trim  prefix="WHERE" prefixOverrides="and |or">
+`lcap_entity_meta_f803ac`.`id` = #{id} 
+</trim> 
+</if>
+</select>
+</mapper>
