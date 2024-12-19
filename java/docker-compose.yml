@@ -4,10 +4,11 @@ version: '3.1'
 services:
   db:
     image: mysql
-    command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
-      - ./mysql/log:/var/log/mysql # 映射日志目录，宿主机:容器
+      # 映射日志目录，宿主机:容器
+      # 宿主机:容器
+      - ./mysql/log:/var/log/mysql
       - ./mysql/data:/var/lib/mysql # 映射数据目录，宿主机:容器
       - ./src/main/resources/db:/db # 将本地的sql语句挂载的容器中
     environment:
